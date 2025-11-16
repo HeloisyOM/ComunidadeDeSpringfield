@@ -1,125 +1,202 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+    <!DOCTYPE html>
+    <html lang="pt-br">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>AquaTech | Cadastro</title>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="stylesheet" href="./css/estilo.css" />
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-</head>
+    <link rel="icon" href="../public/assets/icon-nami.ico" type="image/x-icon">
 
-<body onload="listar()">
-  <!--header inicio-->
-  <div class="header">
-    <div class="container">
-      <h1 class="titulo">AquaTech</h1>
-      <ul class="navbar">
-        <li>
-          <a href="index.html">Inicial</a>
-        </li>
-        <li>
-          <a href="simulador.html">Simulador</a>
-        </li>
-        <li>|</li>
-        <li>
-          <a href="login.html">Login</a>
-        </li>
-        <li class="agora">
-          <a href="#">Cadastro</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!--header fim-->
 
-  <div class="login">
-    <div class="alerta_erro">
+    <link rel="stylesheet" href="css/cadLogin.css">
+
+    <title>Cadastre-se</title>
+    </head>
+
+    <body>
+    <header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href=index.html>Home</a>
+            </li>
+            <li>
+                <a href=index.html#sobreNos>Sobre o projeto</a>
+            </li>
+            <li>
+                <a href="index.html#origem">Origem</a>
+            </li>
+            <li>
+                <a href="index.html#personagem">Personagens</a>
+            </li>
+            <li>
+                <a href=jornal.html>Jornal da Cidade</a>
+            </li>
+            <li>
+                <a href="cadastro.html">Cadastro | </a><a href="login.html">Login</a>
+            </li>
+        </ul>
+    </nav>
+
+    </header>
+
+    <main>
+        <div class="alerta_erro">
       <div class="card_erro" id="cardErro">
         <span id="mensagem_erro"></span>
       </div>
     </div>
-    <div class="container">
-      <div class="card card-cadastro">
-        <h2>Bem-vindo!</h2>
-        <div class="formulario">
-          <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-          <div class="campo">
-            <span>Código de ativação:</span>
-            <input id="codigo_input" type="text" placeholder="Insira aqui seu código" />
-          </div>
-          <div class="campo">
-            <span>Nome:</span>
-            <input id="nome_input" type="text" placeholder="Seu nome" />
-          </div>
-          <div class="campo">
-            <span>E-mail:</span>
-            <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-          </div>
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="senha_input" type="password" placeholder="******" />
-          </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
-          <button class="botao" onclick="cadastrar()">Cadastrar</button>
+    <div id="div_conteudo-cadastro">
+    
+        <div id="cadastro_p1">
+
+                <div class="div_campo">
+                    <h3>Nome:</h3>
+                    <input type="text" id="input_nome" class="campo">
+                </div>
+
+                <div class="div_campo">
+                    <h3>Gênero:</h3>
+                    <select id="select_genero" class="campo">
+                        <option disabled selected value="#">Selecione uma opção</option>
+                        <option value="F">Feminino</option>
+                        <option value="M">Masculino</option>
+                        <option value="O">Outros</option>
+                    </select>
+                </div>
+                <div class="div_campo">
+
+                    <h3>Data de Nascimento:</h3>
+                    <input type="date" id="input_dtNasc"class="campo">
+                </div>
+                <div class="div_campo">
+                    <h3>Personagem Favorito</h3>
+                    <select id="select_personagem">
+                    <option disabled selected value="#">Selecione uma opção</option>
+                    <option value="10">Homer Simpson</option>
+                    <option value="11">Marge Simpson</option>
+                    <option value="12">Bart Simpson</option>
+                    <option value="13">Lisa Simpson</option>
+                    <option value="14">Maggie Simpson</option>
+                    <option value="15">Sideshow Bob</option>
+                    <option value="16">Ned Flanders</option>
+                    <option value="17">Milhouse Van Houten</option>
+                    <option value="18">Krusty</option>
+                    <option value="19">Moe Szyslak</option>
+                    <option value="20">Chef Wiggum</option>
+                    <option value="21">Ralph Wiggum</option>
+                    <option value="22">Apu Nahasapeemapetilon</option>
+                    <option value="23">Montgomery Burns</option>
+                    <option value="24">Smithers</option>
+                    <option value="25">Itchy</option>
+                    <option value="26">Scratchy</option>
+                    <option value="27">Comic Book Guy</option>
+                    <option value="28">Professor Frink</option>
+                    <option value="29">Nelson Muntz</option>
+                    <option value="30">Edna Krabappel</option>
+                    <option value="31">Skinner</option>
+                    <option value="32">Patty Bouvier</option>
+                    <option value="33">Selma Bouvier</option>
+                </select>
+                </div>
+
+                <div class="div_campo">
+                    <h3>Lugar Favorito</h3>
+                    <select id="select_lugar">
+                        <option disabled selected value="#">Selecione um lugar</option>
+                        <option value="20">Bar do Moe</option>
+                        <option value="21">A Casa dos Simpsons</option>
+                        <option value="22">Usina Nuclear de Springfield</option>
+                        <option value="23">Escola Elementar de Springfield</option>
+                        <option value="24">Kwik-E-Mart</option>
+                        <option value="25">Igreja de Springfield</option>
+                        <option value="26">Krusty Burger</option>
+                        <option value="27">Springfield Mall</option>
+                        <option value="28">Hospital Geral de Springfield</option>
+                        <option value="29">Prefeitura de Springfield</option>
+                        <option value="30">Departamento de Polícia de Springfield</option>
+                        <option value="31">Casa do Flanders</option>
+                        <option value="32">Casa do Milhouse</option>
+                        <option value="33">Canal 6 (TV)</option>
+                        <option value="34">Incêndio de Pneus (Tire Fire)</option>
+                        <option value="35">Museu de Springfield</option>
+                        <option value="36">Estádio de Springfield</option>
+                        <option value="37">Asilo – Retirement Castle</option>
+                    </select>
+
+                </div>
+                
+                <div class="div_campo">
+                    <h3>E-mail:</h3>
+                    <input type="text" id="input_email"class="campo">
+                </div>
+
+                <div class="div_campo">
+                    <h3>Senha</h3>
+                    <input type="text" id="input_senha"class="campo">
+                </div>
+
+                <div class="div_campo">
+                    <h3>Confirme a sua senha</h3>
+                    <input type="text" id="input_confirmacao"class="campo">
+                </div>
+                
+                <div class="div_btn">
+                    <button onclick="cadastrar()">Cadastrar</button>
+                </div>
+
+
+            </div>
+
+        <div id="cadastro_p2" style="display: none;">
+            <div class="div_campo">
+                    <h3>Por que você gosta tanto de Simpsons?</h3>
+                    <textarea name="" maxlength=200 id="txtArea_msg"></textarea>
+                </div>
+                <button onclick="cadastrarMensagem()">Enviar</button>
         </div>
-        <div id="div_aguardar" class="loading-div">
-          <img src="./assets/circle-loading.gif" id="loading-gif" />
+            <div id="div_aguardar" class="loading-div">
         </div>
 
         <div id="div_erros_login"></div>
-      </div>
     </div>
-  </div>
 
-  <!--footer inicio-->
-  <div class="footer">
-    <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-      <span class="version">v1.0.0</span>
-    </div>
-  </div>
-  <!--footer fim-->
-</body>
+    </main>
 
-</html>
 
+
+    </body>
+
+    </html>
 <script>
 
   // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
+
+  var idUsuarioAtual =0;
 
   function cadastrar() {
     // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular
+    var personagem = select_personagem.value;
+    var lugarFavorito = select_lugar.value;
+    var nome = input_nome.value;
+    var dtNasc = input_dtNasc.value;
+    var genero = select_genero.value;
+    var email = input_email.value;
+    var senha = input_senha.value;
+    var confirmacaoSenha = input_confirmacao.value;
 
     // Verificando se há algum campo em branco
     if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      nome == "" ||
+      email == "" ||
+      senha == "" ||
+      confirmacaoSenha == "" 
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -127,11 +204,12 @@
 
       finalizarAguardar();
       return false;
-    } else {
+    } 
+   else {
       setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
+    /* // Verificando se o código de ativação é de alguma empresa cadastrada
     for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
       if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
         idEmpresaVincular = listaEmpresasCadastradas[i].id
@@ -142,7 +220,7 @@
         mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
         finalizarAguardar();
       }
-    }
+    } */
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -153,31 +231,39 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        idEmpresaVincularServer: idEmpresaVincular
+        personagemServer : personagem,
+        lugarfavServer : lugarFavorito,
+        nomeServer: nome,
+        dtnascServer: dtNasc,
+        generoServer : genero,
+        emailServer: email,
+        senhaServer: senha,
       }),
     })
       .then(function (resposta) {
-        console.log("resposta: ", resposta);
+      console.log("resposta: ", resposta);
 
-        if (resposta.ok) {
+       if (!resposta.ok) {
+        throw "Houve um erro ao tentar realizar o cadastro!";
+       }
+       else{
+         return resposta.json(); /*retorna em json o que foi mandado no controller para poder armazenar o id*/
+       }
+      
+    })
+      .then(json => {
+        idUsuarioAtual = json.insertId; /*Armazena o últido id inserido*/
+        console.log("ID do usuário cadastrado:", idUsuarioAtual) /*mostra no console*/
+
+       
+          cadastro_p2.style.display = "block";
+          cadastro_p1.style.display = "none";
           cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
 
           limparFormulario();
           finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
+         
+        })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
         finalizarAguardar();
@@ -186,7 +272,7 @@
     return false;
   }
 
-  // Listando empresas cadastradas 
+  /* // Listando empresas cadastradas 
   function listar() {
     fetch("/empresas/listar", {
       method: "GET",
@@ -205,7 +291,51 @@
         console.log(`#ERRO: ${resposta}`);
       });
   }
+ */
 
+ function cadastrarMensagem(){
+
+    var mensagem = txtArea_msg.value
+      fetch("/mensagem/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+       
+        msgServer:mensagem,
+        idUsuario: idUsuarioAtual
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+         
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          cardErro.style.display = "block";
+
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+ 
   function sumirMensagem() {
     cardErro.style.display = "none";
   }

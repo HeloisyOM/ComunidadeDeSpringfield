@@ -1,0 +1,480 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hind:wght@300;400;500;600;700&family=Jacquard+24&family=Mochiy+Pop+P+One&family=Tiro+Telugu:ital@0;1&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "Hind", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 100vh;
+}
+/*Começo navbar*/
+
+header {
+
+    position: sticky;
+    top: 0;
+    border-bottom: 10px solid #f0f1f1;
+}
+
+nav {
+    height: 80px;
+    width: 100%;
+    margin: auto;
+    background-color: white;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 20px;
+}
+
+nav a {
+    font-size: 20px;
+    color: #f03c00;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #4957B3;
+    border: 0;
+    border-radius: 2px;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+/*Fim navbar*/
+
+/*Começo corpo*/
+
+/*Começo banner*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+}
+
+#banner {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    border-bottom: 10px solid #f0f1f1;
+
+}
+
+#div_titulo {
+    padding-left: 9%;
+}
+
+#div_titulo h1,
+#div_titulo h3 {
+    margin: 0;
+}
+
+#div_titulo h1 {
+    font-size: 6rem;
+    max-width: 85%;
+    letter-spacing: 1px;
+    color: #4957B3;
+    line-height: 98%;
+    font-family: "Mochiy Pop P One", sans-serif;
+}
+
+#div_titulo h3 {
+    width: auto;
+    color: #F05E2F;
+    padding-top: 2%;
+    font-size: 1.8rem;
+}
+
+#div_img-banner {
+    margin: 0;
+    padding: 0;
+    margin-right: 0%;
+    padding-top: 6%;
+}
+
+#div_img-banner #img-banner {
+    width: 35rem;
+    display: block;
+
+}
+
+/*Fim banner*/
+
+
+/*Começo sobre*/
+#sobreNos {
+    display: flex;
+    padding: 4%;
+    justify-content: space-around;
+    width: 100%;
+
+}
+
+#sobreNos .div_texto {
+    text-align: end;
+}
+
+#sobreNos .div_texto h1 {
+    color: #F05E2F;
+}
+
+.div_texto h1 {
+    font-size: 4rem;
+    font-family: "Mochiy Pop P One", sans-serif;
+    margin-top: 0;
+
+}
+
+#sobreNos h3 {
+    width: 42rem;
+}
+
+#img-sobre {
+    width: 25rem;
+    height: 25rem;
+    border-radius: 5px;
+}
+
+/*Fim sobre*/
+
+/*Começo origem*/
+
+#origem .div_texto h1 {
+    color: #4957B3;
+}
+
+.div_texto h3 {
+    color: #1e1e1e;
+    font-size: 1.8rem;
+    font-weight: normal;
+    margin-bottom: 1rem;
+}
+
+#origem h3 {
+    width: 25em;
+}
+
+#origem .div_texto {
+    text-align: start;
+}
+
+#origem {
+    display: flex;
+    border-top: #f0f1f1 10px solid;
+    gap: 10rem;
+    border-bottom: #f0f1f1 10px solid;
+    padding-bottom: 4%;
+}
+
+#origem h1 {
+    color: #4957B3;
+}
+
+
+#origem .div_texto {
+    padding-left: 9%;
+}
+
+#origem .div_texto {
+    padding-top: 4%;
+}
+
+#origem #div_img-origem {
+    padding-top: 5%;
+}
+
+#div_img-origem #img-simpAntigo {
+    width: 32rem;
+}
+
+#div_img-origem #img-simpAtual {
+    width: 40rem;
+}
+
+/*Fim origem*/
+
+/*Começo personagem*/
+#personagem {
+    width: 100%;
+
+}
+
+#personagem .tituloP h1 {
+    color: #F05E2F;
+}
+
+
+#personagem {
+    padding-left: 9%;
+    padding-right: 9%;
+    padding-top: 4%;
+}
+
+#div_cards {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 18rem;
+    height: 18rem;
+    background-color: #1e1e1e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 5px;
+}
+
+#div_cards .card1,
+.p1 {
+    background-image: linear-gradient(to top, #53a8e0, #7ab6e0, #8dbee0, #9fc6e1, #b1cee2);
+}
+
+#div_cards .card2,
+.p2 {
+    background-image: linear-gradient(to top, #bce542, #c2e757, #c8e96a, #ceeb7b, #d4ed8c);
+}
+
+#div_cards .card3,
+.p3 {
+    background-image: linear-gradient(to top, #f2541f, #f56e41, #f68661, #f59d80, #f1b39f);
+}
+
+#div_cards .card4,
+.p4 {
+    background-image: linear-gradient(to top, #9764b5, #9b72b4, #a080b4, #a48db3, #a89ab1);
+}
+
+#div_cards .card5,
+.p5 {
+    background-image: linear-gradient(to top, #70d1f4, #83d4f2, #94d8f0, #a4dbee, #b3deed);
+}
+
+#personagem .div_texto {
+    text-align: end;
+}
+
+#personagem img {
+    display: block;
+}
+
+#img-homer-card {
+    width: 15vw;
+}
+
+#img-marge-card {
+    width: 15vw;
+}
+
+#img-bart-card,
+#img-lisa-card {
+    margin-top: 25%;
+    width: 12vw;
+}
+
+#img-mag-card {
+    margin-top: 50%;
+    width: 10vw;
+}
+
+#div_apresentacao {
+    margin-top: 4%;
+    gap: 1rem;
+    width: 100%;
+
+}
+
+#div_apresentacao h3,
+h1 {
+    color: white;
+
+}
+
+.div_personagem {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 25rem;
+    margin-bottom: 2%;
+    border-bottom: 10px solid #f0f1f1;
+
+}
+
+.div_personagem .div_texto {
+    width: 50rem;
+    padding: 4rem;
+}
+
+.circulo-perso {
+    border-radius: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    height: 20rem;
+}
+
+.circulo-perso img {
+    margin-top: 5%;
+}
+
+.impar {
+    text-align: end;
+}
+
+.p5 {
+    margin-bottom: 1rem;
+}
+
+/*Fim personagem*/
+
+
+/*Começo do jornal*/
+#img-bemvindo {
+    margin-top: 2rem;
+    width: 30rem;
+}
+
+#img-cidadaos {
+    margin-top: 2rem;
+    width: 27rem;
+
+}
+
+
+.div_img {
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+#div_conteudo-jornal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #1e1e1e;
+    margin-top: 2rem;
+}
+
+#div_subtitulo {
+    display: flex;
+    justify-content: space-between;
+    border-top: 7px solid #1e1e1e;
+    border-bottom: 7px solid #1e1e1e;
+    padding: 1%;
+}
+
+#div_titulo-jornal h1 {
+    font-family: "Jacquard 24", system-ui;
+    font-size: 9rem;
+}
+
+#div_subtitulo h3 {
+    font-family: "Tiro Telugu", serif;
+    font-size: 3rem;
+}
+
+#div_subtitulo,
+#div_titulo-jornal h1,
+h3 {
+    color: #1e1e1e;
+    margin: 0;
+}
+
+#manchete {
+    margin-top: 1rem;
+}
+
+#manchete h1,
+h2 {
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    color: #1e1e1e;
+}
+
+#manchete h1 {
+    font-size: 5rem;
+}
+
+#manchete h2 {
+    font-size: 2.5rem;
+}
+
+#div_corpo-jornal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60rem;
+    text-align: justify;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/*Fim do jornal*/
+
+
+
+
+/*Fim cadastro*/
+
+
+/*Começo Footer*/
+
+footer {
+    background-color: #4957B3;
+    height: 8rem;
+    font-size: 1.2em;
+    
+}
+
+footer h3,
+a,
+h4 {
+    color: white;
+}
+
+.div_conteudo-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div_conteudo-footer .footer-p1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1%;
+    gap: 30px;
+
+}
+
+.div_conteudo-footer .footer-p2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*FIM Footer*/
