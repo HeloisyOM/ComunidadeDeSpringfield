@@ -15,14 +15,15 @@ header {
 
     position: sticky;
     top: 0;
-    border-bottom: 10px solid #f0f1f1;
+    border-bottom: 10px solid #f7ce1a;
 }
 
 nav {
     height: 80px;
     width: 100%;
     margin: auto;
-    background-color: white;
+    background-color: #f7ce1a;
+    
 }
 
 nav ul {
@@ -51,13 +52,24 @@ nav a:hover {
 
 /*Fim navbar*/
 /*Fim nav bar*/
+main{
+    display: flex;
+}
 /*Começo cadastro*/ 
+#div_lateral{
+background-image: linear-gradient(to top, #005eff, #2269f7, #3c7af6, #6ea1ff, #7dadff);    width: 50%;
+display: flex;
+align-items: center;
+}
+#img-cad{
+    width: 45em;
+}
 #div_conteudo-cadastro {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(to top, #f7ce1a, #f9d439, #fbda50, #fde063, #ffe676);    height: 100%;
-    width: 100%;
+    
+    width: 50%;
     min-height: 90vh;
 }
 
@@ -68,7 +80,7 @@ nav a:hover {
     text-align: start;
     flex-direction: column;
 }
-#cadastro-p1{
+#cadastro_p1,#cadastro_p2{
     background-color: rgb(255, 255, 255);
     width: 35rem;
     height: 50rem;

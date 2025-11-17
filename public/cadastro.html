@@ -49,6 +49,9 @@
         <span id="mensagem_erro"></span>
       </div>
     </div>
+    <div id="div_lateral">
+      <img src="../public/assets/imgs/img-banner2.png" id="img-cad" alt="Ajudante do papai noel e a bola de neve II">
+    </div>
     <div id="div_conteudo-cadastro">
     
         <div id="cadastro_p1">
@@ -91,15 +94,12 @@
                     <option value="22">Apu Nahasapeemapetilon</option>
                     <option value="23">Montgomery Burns</option>
                     <option value="24">Smithers</option>
-                    <option value="25">Itchy</option>
-                    <option value="26">Scratchy</option>
-                    <option value="27">Comic Book Guy</option>
-                    <option value="28">Professor Frink</option>
-                    <option value="29">Nelson Muntz</option>
-                    <option value="30">Edna Krabappel</option>
-                    <option value="31">Skinner</option>
-                    <option value="32">Patty Bouvier</option>
-                    <option value="33">Selma Bouvier</option>
+                    <option value="25">Cara dos Quadrinhos</option>
+                    <option value="26">Nelson Muntz</option>
+                    <option value="27">Edna Krabappel</option>
+                    <option value="28">Skinner</option>
+                    <option value="29">Patty Bouvier</option>
+                    <option value="30">Selma Bouvier</option>
                 </select>
                 </div>
 
@@ -114,17 +114,16 @@
                         <option value="24">Kwik-E-Mart</option>
                         <option value="25">Igreja de Springfield</option>
                         <option value="26">Krusty Burger</option>
-                        <option value="27">Springfield Mall</option>
-                        <option value="28">Hospital Geral de Springfield</option>
-                        <option value="29">Prefeitura de Springfield</option>
-                        <option value="30">Departamento de Polícia de Springfield</option>
-                        <option value="31">Casa do Flanders</option>
-                        <option value="32">Casa do Milhouse</option>
-                        <option value="33">Canal 6 (TV)</option>
-                        <option value="34">Incêndio de Pneus (Tire Fire)</option>
-                        <option value="35">Museu de Springfield</option>
-                        <option value="36">Estádio de Springfield</option>
-                        <option value="37">Asilo – Retirement Castle</option>
+                        <option value="27">Hospital Geral de Springfield</option>
+                        <option value="28">Prefeitura de Springfield</option>
+                        <option value="29">Departamento de Polícia de Springfield</option>
+                        <option value="30">Casa do Flanders</option>
+                        <option value="31">Casa do Milhouse</option>
+                        <option value="32">Canal 6 (TV)</option>
+                        <option value="33">Incêndio de Pneus (Tire Fire)</option>
+                        <option value="34">Museu de Springfield</option>
+                        <option value="35">Estádio de Springfield</option>
+                        <option value="36">Asilo – Retirement Castle</option>
                     </select>
 
                 </div>
@@ -255,7 +254,6 @@
         idUsuarioAtual = json.insertId; /*Armazena o últido id inserido*/
         console.log("ID do usuário cadastrado:", idUsuarioAtual) /*mostra no console*/
 
-       
           cadastro_p2.style.display = "block";
           cadastro_p1.style.display = "none";
           cardErro.style.display = "block";
@@ -323,8 +321,8 @@
 
           cardErro.style.display = "block";
 
-          finalizarAguardar();
-        } else {
+      /* finalizarAguardar();*/
+         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
@@ -332,10 +330,9 @@
         console.log(`#ERRO: ${resposta}`);
         finalizarAguardar();
       });
-
     return false;
   }
- 
+
   function sumirMensagem() {
     cardErro.style.display = "none";
   }
