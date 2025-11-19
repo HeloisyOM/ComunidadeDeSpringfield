@@ -13,32 +13,37 @@
     <link rel="stylesheet" href="./css/estilo.css">
     <link rel="icon" href="./assets/icon/favicon2.ico">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!--Header-->
+    <header>
 
-    <div class="header">
-        <div class="container">
-            <h1 class="titulo">AquaTech</h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicial</a>
-                </li>
-                <li>
-                    <a href="simulador.html">Simulador</a>
-                </li>
-                <li>|</li>
-                <li class="agora">
-                    <a href="#">Login</a>
-                </li>
-                <li>
-                    <a href="cadastro.html">Cadastro</a>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <nav>
+        <ul>
+            <li>
+                <a href=index.html>Home</a>
+            </li>
+            <li>
+                <a href=index.html#sobreNos>Sobre o projeto</a>
+            </li>
+            <li>
+                <a href="index.html#origem">Origem</a>
+            </li>
+            <li>
+                <a href="index.html#personagem">Personagens</a>
+            </li>
+            <li>
+                <a href=jornal.html>Jornal da Cidade</a>
+            </li>
+            <li>
+                <a href="cadastro.html">Cadastro | </a><a href="login.html">Login</a>
+            </li>
+        </ul>
+    </nav>
+
+    </header>
 
 
     <div class="login">
@@ -71,15 +76,17 @@
         </div>
     </div>
 
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-            <span class="version">v1.0.0</span>
-        </div>
-    </div>
-    <!--footer fim-->
-
+    <footer>
+            <div class="div_conteudo-footer">
+                <div class="footer-p1">
+                    <h3>Heloisy Mota</h3>
+                    <a href="https://github.com/HeloisyOM/projetoIndividual"><img src="./assets/imgs/logo-git.svg" alt="logo git hub" width="50px"></a>
+                </div>
+                <div class="footer-p2">
+                <h4>© 2025</h4>
+                </div>
+            </div>
+        </footer>
 </body>
 
 </html>
@@ -130,7 +137,7 @@
                     sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
-                        window.location = "dash.html";
+                        window.location = "dashboard.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
