@@ -1,225 +1,248 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="./js/sessao.js"></script>
 
-    <link rel="icon" href="../public/assets/icon-nami.ico" type="image/x-icon">
+  <link rel="icon" href="../public/assets/icon-nami.ico" type="image/x-icon">
 
 
-    <link rel="stylesheet" href="css/cadLogin.css">
+  <link rel="stylesheet" href="css/cadLogin.css">
 
-    <title>Cadastre-se</title>
-    </head>
+  <title>Cadastre-se</title>
+</head>
 
-    <body>
-    <header>
+<body>
+  <header>
 
     <nav>
-        <ul>
-            <li>
-                <a href=index.html>Home</a>
-            </li>
-            <li>
-                <a href=index.html#sobreNos>Sobre o projeto</a>
-            </li>
-            <li>
-                <a href="index.html#origem">Origem</a>
-            </li>
-            <li>
-                <a href="index.html#personagem">Personagens</a>
-            </li>
-            <li>
-                <a href=jornal.html>Jornal da Cidade</a>
-            </li>
-            <li>
-                <a href="cadastro.html">Cadastro | </a><a href="login.html">Login</a>
-            </li>
-        </ul>
+      <ul>
+        <li>
+          <a href=index.html>Home</a>
+        </li>
+        <li>
+          <a href=index.html#sobreNos>Sobre o projeto</a>
+        </li>
+        <li>
+          <a href="index.html#origem">Origem</a>
+        </li>
+        <li>
+          <a href="index.html#personagem">Personagens</a>
+        </li>
+        <li>
+          <a href=jornal.html>Jornal da Cidade</a>
+        </li>
+        <li>
+          <a href="cadastro.html">Cadastro | </a><a href="login.html">Login</a>
+        </li>
+      </ul>
     </nav>
 
-    </header>
+  </header>
+  
+  <div class="alerta_erro">
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
+    </div>
+  </div>
+  <main>
 
-    <main>
-        <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
+    <div id="div_conteudo-cadastro">
+
+      <div id="cadastro_p1">
+
+        <div class="div_campo">
+          <h3>Nome:</h3>
+          <input type="text" id="input_nome" class="campo">
+        </div>
+
+        <div class="div_campo">
+          <h3>Gênero:</h3>
+          <select id="select_genero" class="campo">
+            <option disabled selected value="#">Selecione uma opção</option>
+            <option>Feminino</option>
+            <option>Masculino</option>
+            <option>Outros</option>
+          </select>
+        </div>
+        <div class="div_campo">
+
+          <h3>Data de Nascimento:</h3>
+          <input type="date" id="input_dtNasc" class="campo">
+        </div>
+        <div class="div_campo">
+          <h3>Personagem Favorito</h3>
+          <select id="select_personagem">
+            <option disabled selected value="#">Selecione uma opção</option>
+            <option value="10">Homer Simpson</option>
+            <option value="11">Marge Simpson</option>
+            <option value="12">Bart Simpson</option>
+            <option value="13">Lisa Simpson</option>
+            <option value="14">Maggie Simpson</option>
+            <option value="15">Sideshow Bob</option>
+            <option value="16">Ned Flanders</option>
+            <option value="17">Milhouse Van Houten</option>
+            <option value="18">Krusty</option>
+            <option value="19">Moe Szyslak</option>
+            <option value="20">Chef Wiggum</option>
+            <option value="21">Ralph Wiggum</option>
+            <option value="22">Apu Nahasapeemapetilon</option>
+            <option value="23">Montgomery Burns</option>
+            <option value="24">Smithers</option>
+            <option value="25">Cara dos Quadrinhos</option>
+            <option value="26">Nelson Muntz</option>
+            <option value="27">Skinner</option>
+            <option value="28">Patty Bouvier</option>
+            <option value="29">Selma Bouvier</option>
+          </select>
+        </div>
+
+        <div class="div_campo">
+          <h3>Lugar Favorito</h3>
+          <select id="select_lugar">
+            <option disabled selected value="#">Selecione um lugar</option>
+            <option value="20">Bar do Moe</option>
+            <option value="21">A Casa dos Simpsons</option>
+            <option value="22">Usina Nuclear de Springfield</option>
+            <option value="23">Escola Elementar de Springfield</option>
+            <option value="24">Kwik-E-Mart</option>
+            <option value="25">Igreja de Springfield</option>
+            <option value="26">Krusty Burger</option>
+            <option value="27">Hospital Geral de Springfield</option>
+            <option value="28">Prefeitura de Springfield</option>
+            <option value="29">Departamento de Polícia de Springfield</option>
+            <option value="30">Casa do Flanders</option>
+            <option value="31">Casa do Milhouse</option>
+            <option value="32">Canal 6 (TV)</option>
+            <option value="33">Incêndio de Pneus (Tire Fire)</option>
+            <option value="34">Museu de Springfield</option>
+            <option value="35">Estádio de Springfield</option>
+            <option value="36">Asilo – Retirement Castle</option>
+          </select>
+
+        </div>
+
+        <div class="div_campo">
+          <h3>E-mail:</h3>
+          <input type="text" id="input_email" class="campo">
+        </div>
+
+        <div class="div_campo">
+          <h3>Senha</h3>
+          <input type="text" id="input_senha" class="campo">
+        </div>
+
+        <div class="div_campo">
+          <h3>Confirme a sua senha</h3>
+          <input type="text" id="input_confirmacao" class="campo">
+        </div>
+
+        <div class="div_btn">
+          <button onclick="cadastrar()">Cadastrar</button>
+        </div>
+
+
+      </div>
+
+      <div id="cadastro_p2" style="display: none;">
+        <div class="div_campo">
+          <h3>Por que você gosta tanto de Simpsons?</h3>
+          <textarea name="" maxlength=200 id="txtArea_msg"></textarea>
+        </div>
+        <button onclick="cadastrarMensagem()">Enviar</button>
+      </div>
+      <div id="div_aguardar" class="loading-div">
+      </div>
+
+      <div id="div_erros_login"></div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="div_conteudo-footer">
+      <div class="footer-p1">
+        <h3>Heloisy Mota</h3>
+        <a href="https://github.com/HeloisyOM/projetoIndividual"><img src="./assets/imgs/logo-git.svg"
+            alt="logo git hub" width="50px"></a>
+      </div>
+      <div class="footer-p2">
+        <h4>© 2025</h4>
       </div>
     </div>
-    <div id="div_lateral">
-      <img src="../public/assets/imgs/img-banner2.png" id="img-cad" alt="Ajudante do papai noel e a bola de neve II">
-    </div>
-    <div id="div_conteudo-cadastro">
-    
-        <div id="cadastro_p1">
+  </footer>
 
-                <div class="div_campo">
-                    <h3>Nome:</h3>
-                    <input type="text" id="input_nome" class="campo">
-                </div>
+</body>
 
-                <div class="div_campo">
-                    <h3>Gênero:</h3>
-                    <select id="select_genero" class="campo">
-                        <option disabled selected value="#">Selecione uma opção</option>
-                        <option value="F">Feminino</option>
-                        <option value="M">Masculino</option>
-                        <option value="O">Outros</option>
-                    </select>
-                </div>
-                <div class="div_campo">
-
-                    <h3>Data de Nascimento:</h3>
-                    <input type="date" id="input_dtNasc"class="campo">
-                </div>
-                <div class="div_campo">
-                    <h3>Personagem Favorito</h3>
-                    <select id="select_personagem">
-                    <option disabled selected value="#">Selecione uma opção</option>
-                    <option value="10">Homer Simpson</option>
-                    <option value="11">Marge Simpson</option>
-                    <option value="12">Bart Simpson</option>
-                    <option value="13">Lisa Simpson</option>
-                    <option value="14">Maggie Simpson</option>
-                    <option value="15">Sideshow Bob</option>
-                    <option value="16">Ned Flanders</option>
-                    <option value="17">Milhouse Van Houten</option>
-                    <option value="18">Krusty</option>
-                    <option value="19">Moe Szyslak</option>
-                    <option value="20">Chef Wiggum</option>
-                    <option value="21">Ralph Wiggum</option>
-                    <option value="22">Apu Nahasapeemapetilon</option>
-                    <option value="23">Montgomery Burns</option>
-                    <option value="24">Smithers</option>
-                    <option value="25">Cara dos Quadrinhos</option>
-                    <option value="26">Nelson Muntz</option>
-                    <option value="27">Edna Krabappel</option>
-                    <option value="28">Skinner</option>
-                    <option value="29">Patty Bouvier</option>
-                    <option value="30">Selma Bouvier</option>
-                </select>
-                </div>
-
-                <div class="div_campo">
-                    <h3>Lugar Favorito</h3>
-                    <select id="select_lugar">
-                        <option disabled selected value="#">Selecione um lugar</option>
-                        <option value="20">Bar do Moe</option>
-                        <option value="21">A Casa dos Simpsons</option>
-                        <option value="22">Usina Nuclear de Springfield</option>
-                        <option value="23">Escola Elementar de Springfield</option>
-                        <option value="24">Kwik-E-Mart</option>
-                        <option value="25">Igreja de Springfield</option>
-                        <option value="26">Krusty Burger</option>
-                        <option value="27">Hospital Geral de Springfield</option>
-                        <option value="28">Prefeitura de Springfield</option>
-                        <option value="29">Departamento de Polícia de Springfield</option>
-                        <option value="30">Casa do Flanders</option>
-                        <option value="31">Casa do Milhouse</option>
-                        <option value="32">Canal 6 (TV)</option>
-                        <option value="33">Incêndio de Pneus (Tire Fire)</option>
-                        <option value="34">Museu de Springfield</option>
-                        <option value="35">Estádio de Springfield</option>
-                        <option value="36">Asilo – Retirement Castle</option>
-                    </select>
-
-                </div>
-                
-                <div class="div_campo">
-                    <h3>E-mail:</h3>
-                    <input type="text" id="input_email"class="campo">
-                </div>
-
-                <div class="div_campo">
-                    <h3>Senha</h3>
-                    <input type="text" id="input_senha"class="campo">
-                </div>
-
-                <div class="div_campo">
-                    <h3>Confirme a sua senha</h3>
-                    <input type="text" id="input_confirmacao"class="campo">
-                </div>
-                
-                <div class="div_btn">
-                    <button onclick="cadastrar()">Cadastrar</button>
-                </div>
-
-
-            </div>
-
-        <div id="cadastro_p2" style="display: none;">
-            <div class="div_campo">
-                    <h3>Por que você gosta tanto de Simpsons?</h3>
-                    <textarea name="" maxlength=200 id="txtArea_msg"></textarea>
-                </div>
-                <button onclick="cadastrarMensagem()">Enviar</button>
-        </div>
-            <div id="div_aguardar" class="loading-div">
-        </div>
-
-        <div id="div_erros_login"></div>
-    </div>
-
-    </main>
-
-
-
-    </body>
-
-    </html>
+</html>
 <script>
 
   // Array para armazenar empresas cadastradas para validação de código de ativação 
 
-  var idUsuarioAtual =0;
+  var idUsuarioAtual = 0;
 
   function cadastrar() {
     // aguardar();
 
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
+    var nome = input_nome.value;
+    var genero = select_genero.value;
+    var dtNasc = input_dtNasc.value;
     var personagem = select_personagem.value;
     var lugarFavorito = select_lugar.value;
-    var nome = input_nome.value;
-    var dtNasc = input_dtNasc.value;
-    var genero = select_genero.value;
     var email = input_email.value;
     var senha = input_senha.value;
     var confirmacaoSenha = input_confirmacao.value;
 
     // Verificando se há algum campo em branco
-    if (
-      nome == "" ||
-      email == "" ||
-      senha == "" ||
-      confirmacaoSenha == "" 
-    ) {
+    if (nome == ""){
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
+      mensagem_erro.innerHTML ="O nome está em branco!";
       finalizarAguardar();
       return false;
-    } 
-   else {
-      setInterval(sumirMensagem, 5000);
+    }else if(genero=='#'){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML ="Informe o seu gênero!";
+      finalizarAguardar();
+      return false;
+    }else if(dtNasc==""){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML ="Informe a sua data de nascimento!";
+      finalizarAguardar();
+      return false;
+    }else if(personagem=='#'){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML ="Escolha o seu personagem favorito!";
+      finalizarAguardar();
+      return false;
+    }else if(lugarFavorito=='#'){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML ="Escolha o seu lugar favorito!";
+      finalizarAguardar();
+      return false;
+    }else if(!email.includes('@')){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML ="O e-mail não tem '@'!";
+      finalizarAguardar();
+      return false;
+    }else if(senha.length<8){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML ="A senha tem que ter 8 caracteres!";
+      finalizarAguardar();
+      return false;
+    }else if(confirmacaoSenha != senha){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML ="As senhas não são iguais! Verifique";
+      finalizarAguardar();
+      return false;
     }
-
-    /* // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
-    } */
+    else {
+      setInterval(sumirMensagem, 3000);
+    }
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -230,38 +253,38 @@
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        personagemServer : personagem,
-        lugarfavServer : lugarFavorito,
+        personagemServer: personagem,
+        lugarfavServer: lugarFavorito,
         nomeServer: nome,
         dtnascServer: dtNasc,
-        generoServer : genero,
+        generoServer: genero,
         emailServer: email,
         senhaServer: senha,
       }),
     })
       .then(function (resposta) {
-      console.log("resposta: ", resposta);
+        console.log("resposta: ", resposta);
 
-       if (!resposta.ok) {
-        throw "Houve um erro ao tentar realizar o cadastro!";
-       }
-       else{
-         return resposta.json(); /*retorna em json o que foi mandado no controller para poder armazenar o id*/
-       }
-      
-    })
+        if (!resposta.ok) {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+        else {
+          return resposta.json(); /*retorna em json o que foi mandado no controller para poder armazenar o id*/
+        }
+
+      })
       .then(json => {
         idUsuarioAtual = json.insertId; /*Armazena o últido id inserido*/
         console.log("ID do usuário cadastrado:", idUsuarioAtual) /*mostra no console*/
 
-          cadastro_p2.style.display = "block";
-          cadastro_p1.style.display = "none";
-          cardErro.style.display = "block";
+        cadastro_p2.style.display = "block";
+        cadastro_p1.style.display = "none";
+        cardErro.style.display = "block";
 
-          limparFormulario();
-          finalizarAguardar();
-         
-        })
+        limparFormulario();
+        finalizarAguardar();
+
+      })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
         finalizarAguardar();
@@ -270,67 +293,56 @@
     return false;
   }
 
-  /* // Listando empresas cadastradas 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresasCadastradas.push(empresa);
 
-            console.log("listaEmpresasCadastradas")
-            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
- */
-
- function cadastrarMensagem(){
+  function cadastrarMensagem() {
 
     var mensagem = txtArea_msg.value
+
+     if(mensagem==""){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML ="Responda a pergunta!";
+      finalizarAguardar();
+      return false;
+    }else {
+      setInterval(sumirMensagem, 3000);
+
+
       fetch("/mensagem/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-       
-        msgServer:mensagem,
-        idUsuario: idUsuarioAtual
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-         
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
-          cardErro.style.display = "block";
-
-      /* finalizarAguardar();*/
-         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+  
+          msgServer: mensagem,
+          idUsuario: idUsuarioAtual
+        }),
       })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
-    return false;
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+  
+          if (resposta.ok) {
+  
+            mensagem_erro.innerHTML =
+              "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+  
+            setTimeout(() => {
+              window.location = "login.html";
+            }, "2000");
+  
+            cardErro.style.display = "block";
+  
+            /* finalizarAguardar();*/
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
+        });
+      return false;
+    }
   }
 
   function sumirMensagem() {

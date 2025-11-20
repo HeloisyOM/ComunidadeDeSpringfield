@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kwik-E-Mart</title>
+    <link rel="stylesheet" href="./css/kwik.css">
+</head>
+
+<body onload="validar()">
+
+    <main>
+        <div class="navbar-lateral">
+            <div class="lateral-saudacoes">
+                <div class="lateral-titulo">
+                    <span id="foto_usuario"></span>
+                    <h2>Olá, <span id="nome_user">usuário</span>!</h2>
+                </div>
+
+                <div class="opcao-menu">
+
+                    <a href="./info_user.html"><span>Meu Espaço</span></a>
+
+                </div>
+                <div class="opcao menu">
+                    <a href="./kwikEmart.html">
+                        <span>Kwik-E-Mart</span>
+                    </a>
+
+                </div>
+                <div class="opcao menu">
+                    <a href="./dashboard.html">
+                        <span>Dashboard</span>
+                    </a>
+
+                </div>
+                <button onclick="limparSessao()">sair</button>
+            </div>
+        </div>  
+        <div class="produtos">
+            <div class="produto">
+                <h3>Rosquinha</h3>
+                <h4>Preco: $6,00</h4>
+                <img src="../assets/produtos/rosquinha.png" alt="Rosquinha">
+                <label for="input_qntRosq">Quantidade:</label>
+                <input type="number" id="input_qntRosq">
+            </div>
+
+            <div class="produto">
+                <h3>Cerveja Duff</h3>
+                <h4>Preco: $12,00</h4>
+                <img src="../assets/produtos/duff.png" alt="Cerveja Duff">
+                <label for="input_qntDuff">Quantidade:</label>
+                <input type="number" id="input_qntDuff">
+            </div>
+            <div class="produto">
+                <h3>Panqueca</h3>
+                <h4>Preco: $15,00</h4>
+                <img src="./assets/produtos/panqueca.png" alt="Panqueca">
+                 <label for="input_qntPanq">Quantidade:</label>
+                <input type="number" id="input_qntPanq">
+            </div>
+            <div class="produto">
+                <h3>Pizza do Luigi</h3>
+                <h4>Preco: $45,00</h4>
+                <img src="./assets/produtos/pizza.png" alt="Pizza do Luigi">
+                 <label for="input_qntPizz">Quantidade:</label>
+                <input type="number" id="input_qntPizz">
+            </div>
+        </div>
+         <div class="produtos">
+            <div class="produto">
+                <h3>Buzz Cola: $8,00 </h3>
+                <h4>Preco</h4>
+                <img src="./assets/produtos/buzzCOla.png" alt="Buzz Cola">
+                 <label for="input_qntBuzz">Quantidade:</label>
+                <input type="number" id="input_qntBuzz">
+            </div>
+            <div class="produto">
+                <h3>Taco: $10,00</h3>
+                <h4>Preco</h4>
+                <img src="./assets/produtos/taco.png" alt="Taco">
+                 <label for="input_qntTaco">Quantidade:</label>
+                <input type="number" id="input_qntTaco">
+            </div>
+            <div class="produto">
+                <h3>Krusty Burguer: $18,00</h3>
+                <h4>Preco</h4>
+                <img src="./assets/produtos/hamburguer.png" alt="Hamburguer">
+                 <label for="input_qntBurg">Quantidade:</label>
+                <input type="number" id="input_qntBurg">
+            </div>
+            <div class="produto">
+                <h3>Hot Dog do Homer</h3>
+                <h4>Preco: $14,00</h4>
+                <img src="./assets/produtos/hotDog.png" alt="Hot Dog do Homer">
+                 <label for="input_qntHot">Quantidade:</label>
+                <input type="number" id="input_qntHot">
+            </div>
+            </div>
+        </div>
+        <button onclick="comprar()">Comprar</button>
+        <div id="div_msg"></div>
+    </main>
+</body>
+</html>
+
+<script>
+
+    var idUsuario ="";
+    function validar() {
+
+    idUsuario = sessionStorage.ID_USUARIO;
+
+    if (!idUsuario) {
+        alert('Acesso Negado!')
+        setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+    }
+}
+    function comprar(){
+        var qntRosq= input_qntRosq.value;
+        var qntDuff= input_qntDuff.value;
+        var qntPanq= input_qntPanq.value;
+        var qntPizz= input_qntPizz.value;
+        var qntBuzz= input_qntBuzz.value;
+        var qntTaco= input_qntTaco.value;
+        var qntBurg= input_qntBurg.value;
+        var qntHot= input_qntHot.value;
+
+        var total = (qntRosq * 6) + (qntDuff * 12) + (qntPanq * 15) + (qntPizz * 45) + (qntBuzz * 8)  + (qntTaco * 10) + (qntBurg * 18) + (qntHot *14);
+
+        if(!qntRosq) qntRosq=0;
+        if(!qntDuff) qntDuff=0;
+        if(!qntPanq) qntPanq=0;
+        if(!qntPizz) qntPizz=0;
+        if(!qntBuzz) qntBuzz=0;
+        if(!qntTaco) qntTaco=0;
+        if(!qntBurg) qntBurg=0;
+        if(!qntHot) qntHot=0;
+
+
+        fetch("/mercado/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        totalServer : total,
+        rosqServer : qntRosq,
+        duffServer: qntDuff,
+        panqServer: qntPanq,
+        pizzServer : qntPizz,
+        buzzServer: qntBuzz,
+        tacoServer: qntTaco,
+        burgServer: qntBurg,
+        hotServer: qntHot,
+        idUserServer: idUsuario
+
+      }),
+    }).then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+         
+            if(total<=20){
+                div_msg.innerHTML = `Gastou pouco, hein? O Homer tá orgulhoso… menos uma dívida pra família Simpson!`;
+            }else if(total>20 && total<=40){
+                div_msg.innerHTML = `Compra modesta! A Marge agradece por você não destruir o orçamento familiar.`;
+            }else if(total>40 && total<=70){
+                div_msg.innerHTML =`Hmm… tá começando a gastar como alguém que foi seduzido por rosquinhas. O Homer aprova!`;
+            }else if(total>70 && total<=100){
+                div_msg.innerHTML=`Isso aí já parece um jantar completo no Kwik-E-Mart. O Apu agradece a preferência!`;
+            }else if(total>100 && total<=150){
+                div_msg.innerHTML=`Você gastou o suficiente pra financiar metade do bar do Moe por um dia inteiro.Certeza que tem Duff envolvida!`;
+            }else if(total>150 && total<=200){
+                div_msg.innerHTML=`Acho que você acabou de virar cliente VIP do Apu. Ele provavelmente já sabe seu nome e onde você mora.`;
+            }else{
+                div_msg.innerHTML=`Meu deus até o Sr. Burns olharia pra você e diria: ‘Excelente…`;
+            }
+
+         } else {
+          throw "Houve um erro ao tentar realizara compra";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+    return false;
+  }
+
+       
+    
+</script>

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comunidade de Springfield</title>
     <link rel="stylesheet" href="./css/dash.css">
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/sessao.js"></script>
 
 </head>
+
 <body>
-    
+
     <main>
         <div class="navbar-lateral">
             <div class="lateral-saudacoes">
@@ -19,81 +21,102 @@
                     <h2>Olá, <span id="nome_user">usuário</span>!</h2>
                 </div>
 
-                <div class="opcoes-menu">
-                   
-                        <a href="infos_user"><span>Meu Espaço</span></a>
-                    
+                <div class="opcao-menu">
+
+                    <a href="./info_user.html"><span>Meu Espaço</span></a>
+
                 </div>
-                <div class="opcoes menu">
+                <div class="opcao menu">
+                    <a href="./kwikEmart.html">
+                        <span>Kwik-E-Mart</span>
+                    </a>
+
+                </div>
+                <div class="opcao menu">
                     <a href="./dashboard.html">
-                            <span>Dashboard</span>
-                        </a>
+                        <span>Dashboard</span>
+                    </a>
 
                 </div>
                 <button onclick="limparSessao()">sair</button>
             </div>
         </div>
-            <div id="div_conteudo-dash">
+        <div id="div_conteudo-dash">
 
-                <div class="div_kpis">
+            <div class="div_kpis">
 
-                    <div class="kpi">
-                        <h3>Personagem favorito</h3>
-                        <img src="" alt="">
-                        <h4 id="kpi_perso">resposta do banco</h4>
+                <div class="kpi">
+                    <h3>Personagem favorito</h3>
+                    <img src="" alt="">
+                    <h4 id="kpi_perso"></h4>
+                </div>
+
+                <div class="kpi">
+                    <h3>Lugar Favorito</h3>
+                    <img src="" alt="">
+                    <h4 id="kpi_lugar"></h4>
+                </div>
+                <div class="kpi">
+                    <h3>Gênero Predominante</h3>
+                    <img src="" alt="">
+                    <h4 id="kpi_genero"></h4>
+                </div>
+                <div class="kpi">
+                    <h3>Idade Média</h3>
+                    <h4 id="kpi_idadeM"></h4>
+                </div>
+                <div class="kpi">
+                    <h3>Média de Compra</h3>
+                    <h4 id="kpi_CompraMedia"></h4>
+                </div>
+                <div class="kpi">
+                    <h3>Produto Mais Vendido</h3>
+                    <h4 id="kpi_produto"></h4>
+                </div>
+            </div>
+
+            <div class="div_graficos">
+                <div class="graficos_1">
+                    <div class="grafico">
+                        <h4>Top três dos personagens mais favoritados</h4>
+                        <canvas id="grafico_Top3P"></canvas>
                     </div>
-                    
-                    <div class="kpi">
-                        <h3>Lugar Favorito</h3>
-                        <img src="" alt="">
-                        <h4 id="kpi_lugar">resposta do banco</h4>
+                    <div class="grafioc">
+                        <h4>Top três lugares favoritos</h4>
+                        <canvas id="grafico_Top3L"></canvas>
                     </div>
-                    <div class="kpi">
-                        <h3>Gênero Predominante</h3>
-                        <img src="" alt="">
-                        <h4 id="kpi_genero">resposta do banco</h4>
+                    <div class="grafico">
+                        <h4>Distribuição por gênero</h4>
+                        <canvas id="grafico_Genero"></canvas>
                     </div>
-                    <div class="kpi">
-                        <h3>titulo</h3>
-                        <h4>resposta do banco</h4>
+                </div> 
+                <div class="graficos_1">
+                    <div class="grafico">
+                        <h4>Faixa etária da Comunidade</h4>
+                        <canvas id="grafico_Faixa"></canvas>
                     </div>
                 </div>
 
-                <div class="div_graficos">
-                    <div class="graficos">
-                        <div class="grafico1">
-                            <h4>Top três dos personagens mais favoritados</h4>
-                            <canvas id="grafico_Top3P"></canvas>
-                    </div>
-                    <div class="grafico1">
-                            <h4>Top três lugares favoritos</h4>
-                            <canvas id="grafico_Top3L"></canvas>
-                    </div>
-                    <div class="grafico1">
-                            <h4>Distribuição por gênero</h4>
-                            <canvas id="grafico_Genero"></canvas>
-                    </div>
-                    </div>
             </div>
     </main>
 </body>
+
 </html>
 
 <script>
-    
+
     window.onload = () => {
-    obterDadosTop3P();
-    obterDadosTop3L();
-    obterDadosGenero();
-    mostrarKpis();
-};
+        obterDadosTop3P();
+        obterDadosTop3L();
+        obterDadosGenero();
+        obterDadosFaixa();
+        mostrarKpis();
+    };
 
 
-function carregarDados(){
-        var nomeUsuario = sessionStorage.NOME_USUARIO;
 
-        nome_user.innerHTML =nomeUsuario;
-    }
+    nome_user.innerHTML = sessionStorage.NOME_USUARIO;
+
 
     function obterDadosTop3P() {
 
@@ -115,17 +138,17 @@ function carregarDados(){
     function plotarGrafico_Top3P(resposta) {
 
         console.log('plotando top3 personagem no gráfico');
-        
+
         var nomePersonagem = [];
         var valores = []
 
         // Criando estrutura para plotar gráfico 
 
         for (var i = 0; i < resposta.length; i++) {
-        var dadoAtual = resposta[i];
-        nomePersonagem.push(dadoAtual.personagem);
-        valores.push(dadoAtual.total);
-    }
+            var dadoAtual = resposta[i];
+            nomePersonagem.push(dadoAtual.personagem);
+            valores.push(dadoAtual.total);
+        }
 
         // Criando estrutura para plotar gráfico - dados
         let dados = {
@@ -137,8 +160,9 @@ function carregarDados(){
                 tension: 0.1,
                 backgroundColor: ['#9764b5', '#f2541f', '#bce542']
             },
-            
-        ]};
+
+            ]
+        };
 
         // Criando estrutura para plotar gráfico - config
         const config = {
@@ -174,17 +198,17 @@ function carregarDados(){
     function plotarGrafico_Top3L(resposta) {
 
         console.log('plotando top3 lugares no gráfico');
-        
+
         var nomeLugar = [];
         var valores = []
 
         // Criando estrutura para plotar gráfico 
 
         for (var i = 0; i < resposta.length; i++) {
-        var dadoAtual = resposta[i];
-        nomeLugar.push(dadoAtual.lugar);
-        valores.push(dadoAtual.total);
-    }
+            var dadoAtual = resposta[i];
+            nomeLugar.push(dadoAtual.lugar);
+            valores.push(dadoAtual.total);
+        }
 
         // Criando estrutura para plotar gráfico - dados
         let dados = {
@@ -196,8 +220,9 @@ function carregarDados(){
                 tension: 0.1,
                 backgroundColor: ['#9764b5', '#f2541f', '#bce542']
             },
-            
-        ]};
+
+            ]
+        };
 
         // Criando estrutura para plotar gráfico - config
         const config = {
@@ -234,17 +259,17 @@ function carregarDados(){
     function plotarGrafico_Genero(resposta) {
 
         console.log('plotando de distribuicao de genero no gráfico');
-        
+
         var genero = [];
         var valores = []
 
         // Criando estrutura para plotar gráfico 
 
         for (var i = 0; i < resposta.length; i++) {
-        var dadoAtual = resposta[i];
-        genero.push(dadoAtual.genero);
-        valores.push(dadoAtual.total);
-    }
+            var dadoAtual = resposta[i];
+            genero.push(dadoAtual.genero);
+            valores.push(dadoAtual.total);
+        }
 
         // Criando estrutura para plotar gráfico - dados
         let dados = {
@@ -256,8 +281,9 @@ function carregarDados(){
                 tension: 0.1,
                 backgroundColor: ['#9764b5', '#f2541f', '#bce542']
             },
-            
-        ]};
+
+            ]
+        };
 
         // Criando estrutura para plotar gráfico - config
         const config = {
@@ -272,6 +298,65 @@ function carregarDados(){
         );
     }
 
+    function obterDadosFaixa() {
+
+        fetch(`/dashboard/faixaEtaria`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log("A faixa etária:", resposta);
+                    plotarGraficoFaixa(resposta);
+                });
+            } else {
+                console.error("Nenhum dado encontrado para a faixa etária!");
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro no fetch da faixa etária!`);
+            });
+    }
+
+    function plotarGraficoFaixa(resposta) {
+
+        console.log('plotando a faixa etária! no gráfico');
+
+        var faixa = []
+        var valores = [];
+
+        // Criando estrutura para plotar gráfico 
+
+        for (var i = 0; i < resposta.length; i++) {
+            var dadoAtual = resposta[i];
+            faixa.push(dadoAtual.faixa);
+            valores.push(dadoAtual.quantidade);
+        }
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: faixa,
+            datasets: [{
+                label: 'Personagens mais escolhidos',
+                data: valores,
+                fill: false,
+                tension: 0.1,
+                backgroundColor: ['#9764b5', '#f2541f', '#bce542']
+            },
+
+            ]
+        };
+
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        // Adicionando gráfico criado em div na tela
+        new Chart(
+            document.getElementById("grafico_Faixa"),
+            config
+        );
+
+    }
 
     function mostrarKpis() {
 
@@ -280,11 +365,11 @@ function carregarDados(){
                 response.json().then(function (resposta) {
                     console.log("KPI de personagem", resposta);
                     console.log('plotando de kpi de persoangem no gráfico');
-                   var personagem=resposta[0].nomePersonagem;
-                   kpi_perso.innerHTML=personagem;
+                    var personagem = resposta[0].nomePersonagem;
+                    kpi_perso.innerHTML = personagem;
                 });
             } else {
-                console.error("Nenhum dado encontrado para a kpi1");
+                console.error("Nenhum dado encontrado para a kpi de personagem");
             }
         })
             .catch(function (error) {
@@ -297,11 +382,11 @@ function carregarDados(){
                 response.json().then(function (resposta) {
                     console.log("KPI de Lugares", resposta);
                     console.log('plotando kpi lugar no gráfico');
-                   var lugar=resposta[0].nomeLugar;
-                   kpi_lugar.innerHTML=lugar;
+                    var lugar = resposta[0].nomeLugar;
+                    kpi_lugar.innerHTML = lugar;
                 });
             } else {
-                console.error("Nenhum dado encontrado para a kpi1");
+                console.error("Nenhum dado encontrado para a kpi de lugar");
             }
         })
             .catch(function (error) {
@@ -313,27 +398,39 @@ function carregarDados(){
                 response.json().then(function (resposta) {
                     console.log("KPI de genero", resposta);
                     console.log('plotando kpi genero no gráfico');
-                   var genero=resposta[0].genero;
-
-                   if(genero =='F'){
-                       kpi_genero.innerHTML='Feminino';
-                   }else if(genero =='M'){
-                        kpi_genero.innerHTML='Masculino';
-                   }else{
-                        kpi_genero.innerHTML='Outros';
-                   }
+                    var genero = resposta[0].genero;
+                    
+                    kpi_genero.innerHTML = genero;
+                    
 
                 });
             } else {
-                console.error("Nenhum dado encontrado para a kpi1");
+                console.error("Nenhum dado encontrado para a kpi de genero");
             }
         })
             .catch(function (error) {
-                console.error(`Erro no fetch  da kpi1`);
+                console.error(`Erro no fetch  da kpi1 de genero`);
+            });
+        
+        fetch(`/dashboard/kpi_idadeM`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log("KPI de Idade Média", resposta);
+                    console.log('plotando kpi idade média no gráfico');
+                    var idadeM = resposta[0].idade;
+                    kpi_idadeM.innerHTML =idadeM;
+
+                });
+            } else {
+                console.error("Nenhum dado encontrado para a kpi de Idade Média",error);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro no fetch  da kpi1 de Idade Média`,error);
             });
     }
-   
 
-        
-    
+
+
+
 </script>

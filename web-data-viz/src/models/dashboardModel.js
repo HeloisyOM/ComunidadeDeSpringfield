@@ -40,6 +40,27 @@ function distGenero() {
         return database.executar(instrucaoSql);
 }
 
+function faixaEtaria() {
+
+    var instrucaoSql = `
+    select
+    case 
+    when timestampdiff(year,dataNasc, curdate()) between 0 and 12 then '0-12'
+    when timestampdiff(year,dataNasc, curdate()) between 13 and 17 then '13-17'
+    when timestampdiff(year,dataNasc, curdate()) between 18 and 25 then '18-25'
+    when timestampdiff(year,dataNasc, curdate()) between 26 and 40 then '26-40'
+    else '41+'
+    end as faixa,
+        count(*) as quantidade
+        from usuario
+        group by faixa
+            order by quantidade desc;`;
+    
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+}
+
+/*KPIS */
 function kpi_persoNome() {
 
     var instrucaoSql = `
@@ -80,12 +101,21 @@ function kpi_genero() {
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
 }
+function kpi_idadeM() {
 
+    var instrucaoSql = `
+            select ROUND(AVG(timestampdiff(year,dataNasc, curdate())) as idade from usuario;`;
+    
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+}
 module.exports = {
     top3Lugares,
     top3Perso,
     distGenero,
+    faixaEtaria,
     kpi_persoNome,
     kpi_lugar,
-    kpi_genero
+    kpi_genero,
+    kpi_idadeM
 }

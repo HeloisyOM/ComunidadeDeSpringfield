@@ -20,6 +20,10 @@ router.get("/distGenero", function (req, res) {
     dashboardController.distGenero(req, res);
 });
 
+//Recebendo os dados do html e direcionando para a função cadastrar de dashboardController.js
+router.get("/faixaEtaria", function (req, res) {
+    dashboardController.faixaEtaria(req, res);
+});
 
 //KPIs
 
@@ -31,6 +35,9 @@ router.get("/kpi_lugar", function (req, res) {
 });
 router.get("/kpi_genero", function (req, res) {
     dashboardController.kpi_genero(req, res);
+});
+router.get("/kpi_idadeM", function (req, res) {
+    dashboardController.kpi_idadeM(req, res);
 });
 
 module.exports = router;
