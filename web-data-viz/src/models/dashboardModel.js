@@ -109,6 +109,15 @@ function kpi_idadeM() {
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
 }
+function kpi_totalGeral() {
+
+    var instrucaoSql = `
+            select SUM(totalGasto) from compra order by totalGasto desc;
+`;
+    
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+}
 module.exports = {
     top3Lugares,
     top3Perso,
@@ -117,5 +126,6 @@ module.exports = {
     kpi_persoNome,
     kpi_lugar,
     kpi_genero,
-    kpi_idadeM
+    kpi_idadeM,
+    kpi_totalGeral
 }

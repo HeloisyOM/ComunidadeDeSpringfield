@@ -142,7 +142,6 @@
         var nomePersonagem = [];
         var valores = []
 
-        // Criando estrutura para plotar gráfico 
 
         for (var i = 0; i < resposta.length; i++) {
             var dadoAtual = resposta[i];
@@ -150,7 +149,6 @@
             valores.push(dadoAtual.total);
         }
 
-        // Criando estrutura para plotar gráfico - dados
         let dados = {
             labels: nomePersonagem,
             datasets: [{
@@ -164,13 +162,11 @@
             ]
         };
 
-        // Criando estrutura para plotar gráfico - config
         const config = {
             type: 'bar',
             data: dados,
         };
 
-        // Adicionando gráfico criado em div na tela
         new Chart(
             document.getElementById("grafico_Top3P"),
             config
@@ -202,7 +198,6 @@
         var nomeLugar = [];
         var valores = []
 
-        // Criando estrutura para plotar gráfico 
 
         for (var i = 0; i < resposta.length; i++) {
             var dadoAtual = resposta[i];
@@ -210,7 +205,6 @@
             valores.push(dadoAtual.total);
         }
 
-        // Criando estrutura para plotar gráfico - dados
         let dados = {
             labels: nomeLugar,
             datasets: [{
@@ -224,13 +218,11 @@
             ]
         };
 
-        // Criando estrutura para plotar gráfico - config
         const config = {
             type: 'bar',
             data: dados,
         };
 
-        // Adicionando gráfico criado em div na tela
         new Chart(
             document.getElementById("grafico_Top3L"),
             config
@@ -263,7 +255,6 @@
         var genero = [];
         var valores = []
 
-        // Criando estrutura para plotar gráfico 
 
         for (var i = 0; i < resposta.length; i++) {
             var dadoAtual = resposta[i];
@@ -271,7 +262,6 @@
             valores.push(dadoAtual.total);
         }
 
-        // Criando estrutura para plotar gráfico - dados
         let dados = {
             labels: genero,
             datasets: [{
@@ -285,13 +275,11 @@
             ]
         };
 
-        // Criando estrutura para plotar gráfico - config
         const config = {
             type: 'pie',
             data: dados,
         };
 
-        // Adicionando gráfico criado em div na tela
         new Chart(
             document.getElementById("grafico_Genero"),
             config
@@ -322,7 +310,6 @@
         var faixa = []
         var valores = [];
 
-        // Criando estrutura para plotar gráfico 
 
         for (var i = 0; i < resposta.length; i++) {
             var dadoAtual = resposta[i];
@@ -330,11 +317,10 @@
             valores.push(dadoAtual.quantidade);
         }
 
-        // Criando estrutura para plotar gráfico - dados
         let dados = {
             labels: faixa,
             datasets: [{
-                label: 'Personagens mais escolhidos',
+                label: 'Faixa Etária',
                 data: valores,
                 fill: false,
                 tension: 0.1,
@@ -344,13 +330,11 @@
             ]
         };
 
-        // Criando estrutura para plotar gráfico - config
         const config = {
             type: 'bar',
             data: dados,
         };
 
-        // Adicionando gráfico criado em div na tela
         new Chart(
             document.getElementById("grafico_Faixa"),
             config
