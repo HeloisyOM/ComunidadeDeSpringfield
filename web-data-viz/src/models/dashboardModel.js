@@ -43,14 +43,14 @@ function distGenero() {
 function faixaEtaria() {
 
     var instrucaoSql = `
-    select
-    case 
-    when timestampdiff(year,dataNasc, curdate()) between 0 and 12 then '0-12'
-    when timestampdiff(year,dataNasc, curdate()) between 13 and 17 then '13-17'
-    when timestampdiff(year,dataNasc, curdate()) between 18 and 25 then '18-25'
-    when timestampdiff(year,dataNasc, curdate()) between 26 and 40 then '26-40'
-    else '41+'
-    end as faixa,
+        select
+        case 
+        when timestampdiff(year,dataNasc, now()) between 0 and 12 then '0-12'
+        when timestampdiff(year,dataNasc, now()) between 13 and 17 then '13-17'
+        when timestampdiff(year,dataNasc, now()) between 18 and 25 then '18-25'
+        when timestampdiff(year,dataNasc, now()) between 26 and 40 then '26-40'
+        else '41+'
+        end as faixa,
         count(*) as quantidade
         from usuario
         group by faixa
@@ -60,6 +60,38 @@ function faixaEtaria() {
         return database.executar(instrucaoSql);
 }
 
+function faixaGasto() {
+
+    var instrucaoSql = `
+        select 
+        case
+        when totalGasto<=20 then 'Até 20 reais'
+        when totalGasto>20 and totalGasto<=40 then 'Até R$40,00 reais'
+        when totalGasto>40 and totalGasto<=70 then 'Até R$70,00 reais'
+        when totalGasto>70 and totalGasto<=100 then 'Até R$100,00 reais'
+        when totalGasto>100 and totalGasto<=150 then 'Até R$150,00 reais'
+        when totalGasto>150 and totalGasto<=200 then 'Até R$200,00'
+        else 'Maior que R$200,00'
+        end as faixaGasto,
+        count(*) as valores
+            from compra
+            group by faixaGasto
+                order by valores desc;`;
+    
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+}
+
+function ranking() {
+
+    var instrucaoSql = `
+        select SUM(rosquinha) as rosquinha, SUM(duff) as duff , SUM(panqueca) as panqueca , SUM(pizzaLuigi) as pizza  , 
+SUM(BuzzCola) as bzzCola, SUM(taco) as taco , SUM(hamburguer) as burguer  , SUM(hotdog) as hotdog 
+from compra;`;
+    
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+}
 /*KPIS */
 function kpi_persoNome() {
 
@@ -104,15 +136,16 @@ function kpi_genero() {
 function kpi_idadeM() {
 
     var instrucaoSql = `
-            select ROUND(AVG(timestampdiff(year,dataNasc, curdate())) as idade from usuario;`;
+            	select ROUND(AVG(timestampdiff(year,dataNasc, curdate()))) as idade from usuario;`;
     
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
 }
-function kpi_totalGeral() {
+function kpi_mediaVendas() {
 
     var instrucaoSql = `
-            select SUM(totalGasto) from compra order by totalGasto desc;
+            select ROUND(AVG(totalGasto),2) as media from compra
+order by totalGasto desc;;
 `;
     
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -123,9 +156,11 @@ module.exports = {
     top3Perso,
     distGenero,
     faixaEtaria,
+    faixaGasto,
+    ranking,
     kpi_persoNome,
     kpi_lugar,
     kpi_genero,
     kpi_idadeM,
-    kpi_totalGeral
+    kpi_mediaVendas
 }

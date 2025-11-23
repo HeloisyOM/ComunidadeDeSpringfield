@@ -25,6 +25,13 @@ router.get("/faixaEtaria", function (req, res) {
     dashboardController.faixaEtaria(req, res);
 });
 
+router.get("/faixaGasto", function (req, res) {
+    dashboardController.faixaGasto(req, res);
+});
+router.get("/ranking", function (req, res) {
+    dashboardController.ranking(req, res);
+});
+
 //KPIs
 
 router.get("/kpi_persoNome", function (req, res) {
@@ -38,6 +45,9 @@ router.get("/kpi_genero", function (req, res) {
 });
 router.get("/kpi_idadeM", function (req, res) {
     dashboardController.kpi_idadeM(req, res);
+});
+router.get("/kpi_mediaVendas", function (req, res) {
+    dashboardController.kpi_mediaVendas(req, res);
 });
 
 module.exports = router;

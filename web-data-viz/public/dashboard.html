@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body onload="carregar()">
 
     <main>
         <div class="navbar-lateral">
@@ -66,13 +66,13 @@
                     <h4 id="kpi_idadeM"></h4>
                 </div>
                 <div class="kpi">
-                    <h3>Média de Compra</h3>
-                    <h4 id="kpi_CompraMedia"></h4>
+                    <h3>Total Vendido</h3>
+                    <h4 id="kpi_mediaVendas"></h4>
                 </div>
-                <div class="kpi">
+                <!-- div class="kpi">
                     <h3>Produto Mais Vendido</h3>
                     <h4 id="kpi_produto"></h4>
-                </div>
+                </div> -->
             </div>
 
             <div class="div_graficos">
@@ -86,18 +86,23 @@
                         <canvas id="grafico_Top3L"></canvas>
                     </div>
                     <div class="grafico">
-                        <h4>Distribuição por gênero</h4>
-                        <canvas id="grafico_Genero"></canvas>
-                    </div>
-                </div> 
-                <div class="graficos_1">
-                    <div class="grafico">
                         <h4>Faixa etária da Comunidade</h4>
                         <canvas id="grafico_Faixa"></canvas>
                     </div>
                 </div>
+                <div class="graficos_1">
+                    <div class="grafico">
+                        <h4>Faixa de gasto no Kwik-E-Mart</h4>
+                        <canvas id="grafico_Total"></canvas>
+                    </div>
+                    <div class="grafico">
+                        <h4>Distribuição por gênero</h4>
+                        <canvas id="grafico_Genero"></canvas>
+                    </div>
+                </div>
 
             </div>
+            <div id="div_msg"></div>
     </main>
 </body>
 
@@ -105,13 +110,16 @@
 
 <script>
 
-    window.onload = () => {
+    function carregar() {
+
         obterDadosTop3P();
         obterDadosTop3L();
         obterDadosGenero();
-        obterDadosFaixa();
+        obterDadosFaixaIdade();
+        obterDadosGasto();
         mostrarKpis();
-    };
+
+    }
 
 
 
@@ -152,7 +160,7 @@
         let dados = {
             labels: nomePersonagem,
             datasets: [{
-                label: 'Personagens mais escolhidos',
+                label: 'Quantidade',
                 data: valores,
                 fill: false,
                 tension: 0.1,
@@ -208,7 +216,7 @@
         let dados = {
             labels: nomeLugar,
             datasets: [{
-                label: 'Lugares mais escolhidos',
+                label: 'Quantidade',
                 data: valores,
                 fill: false,
                 tension: 0.1,
@@ -240,7 +248,7 @@
                     plotarGrafico_Genero(resposta);
                 });
             } else {
-                console.error("Nenhum dado encontrado para no distribuicao de genero");
+                console.error("Nenhum dado encontrado no distribuicao de genero");
             }
         })
             .catch(function (error) {
@@ -265,7 +273,7 @@
         let dados = {
             labels: genero,
             datasets: [{
-                label: 'Distribuição de gênero',
+                label: 'Quantidade',
                 data: valores,
                 fill: false,
                 tension: 0.1,
@@ -286,7 +294,7 @@
         );
     }
 
-    function obterDadosFaixa() {
+    function obterDadosFaixaIdade() {
 
         fetch(`/dashboard/faixaEtaria`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -320,7 +328,7 @@
         let dados = {
             labels: faixa,
             datasets: [{
-                label: 'Faixa Etária',
+                label: 'Quantidade',
                 data: valores,
                 fill: false,
                 tension: 0.1,
@@ -341,6 +349,118 @@
         );
 
     }
+
+    function obterDadosGasto() {
+
+        fetch(`/dashboard/faixaGasto`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log("A faixa gasto:", resposta);
+                    plotarGraficoGasto(resposta);
+                });
+            } else {
+                console.error("Nenhum dado encontrado para a faixa gasto!");
+            }
+        }).catch(function (error) {
+            console.error(`Erro no fetch da faixa gasto!`);
+        });
+    }
+
+    function plotarGraficoGasto(resposta) {
+
+        console.log('plotando a faixa gasto! no gráfico');
+
+        var faixa = []
+        var valores = [];
+
+
+        for (var i = 0; i < resposta.length; i++) {
+            var dadoAtual = resposta[i];
+            faixa.push(dadoAtual.faixaGasto);
+            valores.push(dadoAtual.valores);
+        }
+
+        let dados = {
+            labels: faixa,
+            datasets: [{
+                label: 'Quantidade',
+                data: valores,
+                fill: false,
+                tension: 0.1,
+                backgroundColor: ['#9764b5', '#f2541f', '#bce542']
+            },
+            ]
+        };
+
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        new Chart(
+            document.getElementById("grafico_Total"),
+            config 
+        );
+    }
+
+    /* function rankingProd() {
+        fetch(`/dashboard/ranking`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log("A faixa gasto:", resposta);
+
+                    var item = resposta[0];
+                    var lista = ['rosquinha', 'duff', 'panqueca', 'pizza', 'bzzCola', 'taco', 'burguer', 'hotdog']
+                    var totalProdutos = 0;
+                    var primeiro
+                    var pares = []
+
+                    for (var i = 0; i < lista.length; i++) {
+
+                        dadoResposta = item[lista[i]];
+                        var nome = lista[i];
+                        var valor = item[nome];
+                        var par = [nome, valor];
+                        pares.push(par);
+                    }
+
+
+               
+                    
+                    var ranking = [];
+
+                    while (ranking.length < pares.length) {
+
+
+                        
+                        
+                        for(i=0; i<pares.length; i++){
+                            var itemAtual = pares[i]
+                            var maior = pares[i][1];
+                            var menor = pares[i][1];
+
+                            if(maior>menor){
+                                menor = itemAtual[i]
+                            }else{
+                                maior = itemAtual[i]
+                            }
+                                ranking.push(maior,menor)
+
+                        }
+
+                }
+            
+             });
+    } else {
+        console.error("Nenhum dado encontrado para a faixa gasto!");
+    }
+        }).catch (function (error) {
+        console.error(`Erro no fetch da faixa gasto!`);
+    });
+    
+    }
+
+ */
 
     function mostrarKpis() {
 
@@ -383,9 +503,9 @@
                     console.log("KPI de genero", resposta);
                     console.log('plotando kpi genero no gráfico');
                     var genero = resposta[0].genero;
-                    
+
                     kpi_genero.innerHTML = genero;
-                    
+
 
                 });
             } else {
@@ -395,25 +515,43 @@
             .catch(function (error) {
                 console.error(`Erro no fetch  da kpi1 de genero`);
             });
-        
+
         fetch(`/dashboard/kpi_idadeM`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log("KPI de Idade Média", resposta);
                     console.log('plotando kpi idade média no gráfico');
                     var idadeM = resposta[0].idade;
-                    kpi_idadeM.innerHTML =idadeM;
+                    kpi_idadeM.innerHTML = idadeM;
 
                 });
             } else {
-                console.error("Nenhum dado encontrado para a kpi de Idade Média",error);
+                console.error("Nenhum dado encontrado para a kpi de Idade Média", error);
             }
         })
             .catch(function (error) {
-                console.error(`Erro no fetch  da kpi1 de Idade Média`,error);
+                console.error(`Erro no fetch  da kpi1 de Idade Média`, error);
             });
-    }
 
+
+        fetch(`/dashboard/kpi_mediaVendas`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log("KPI de Total gasto nomercado todo", resposta);
+                    console.log('plotando kpi de total no gráfico');
+                    var mediaVendas = resposta[0].media;
+                    kpi_mediaVendas.innerHTML = mediaVendas;
+
+                });
+            } else {
+                console.error("Nenhum dado encontrado para a kpi de total", error);
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro no fetch  da kpi1 de de total`, error);
+            });
+
+    }
 
 
 

@@ -12,43 +12,47 @@
 
   <link rel="stylesheet" href="css/cadLogin.css">
 
-  <title>Cadastre-se</title>
+  <title>Cadastro</title>
 </head>
 
 <body>
-  <header>
+  <div class="div_background">
 
     <nav>
-      <ul>
-        <li>
-          <a href=index.html>Home</a>
-        </li>
-        <li>
-          <a href=index.html#sobreNos>Sobre o projeto</a>
-        </li>
-        <li>
-          <a href="index.html#origem">Origem</a>
-        </li>
-        <li>
-          <a href="index.html#personagem">Personagens</a>
-        </li>
-        <li>
-          <a href=jornal.html>Jornal da Cidade</a>
-        </li>
-        <li>
-          <a href="cadastro.html">Cadastro | </a><a href="login.html">Login</a>
-        </li>
-      </ul>
+      <div class="div-menu">
+
+        <ul>
+          <li>
+            <a href=index.html>Home</a>
+          </li>
+          <li>
+            <a href=index.html#sobreNos>Sobre o projeto</a>
+          </li>
+          <li>
+            <a href="index.html#origem">Origem</a>
+          </li>
+          <li>
+            <a href="index.html#personagem">Personagens</a>
+          </li>
+          <li>
+            <a href=jornal.html>Jornal da Cidade</a>
+          </li>
+          <li>
+            <a href="cadastro.html">Cadastro  </a> | <a href="login.html">Login</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
-  </header>
   
   <div class="alerta_erro">
     <div class="card_erro" id="cardErro">
       <span id="mensagem_erro"></span>
     </div>
   </div>
+  
   <main>
+    <h2>Cadastre-se</h2>
 
     <div id="div_conteudo-cadastro">
 
@@ -56,12 +60,12 @@
 
         <div class="div_campo">
           <h3>Nome:</h3>
-          <input type="text" id="input_nome" class="campo">
+          <input type="text" id="input_nome" class="campo" placeholder="Homer Simpson">
         </div>
 
         <div class="div_campo">
           <h3>Gênero:</h3>
-          <select id="select_genero" class="campo">
+          <select id="select_genero" class="select">
             <option disabled selected value="#">Selecione uma opção</option>
             <option>Feminino</option>
             <option>Masculino</option>
@@ -75,7 +79,7 @@
         </div>
         <div class="div_campo">
           <h3>Personagem Favorito</h3>
-          <select id="select_personagem">
+          <select id="select_personagem"  class="select">
               <option disabled selected value="#">Selecione uma opção</option>
               <option value="1">Homer Simpson</option>
               <option value="2">Marge Simpson</option>
@@ -101,8 +105,8 @@
         </div>
 
         <div class="div_campo">
-          <h3>Qual é o seu lugar favorito para as aventuras?</h3>
-          <select id="select_lugar">
+          <h3>Qual é o seu lugar favorito em Springfield?</h3>
+          <select id="select_lugar" class="select">
             <option disabled selected value="#">Selecione um lugar</option>
             <option value="1">Bar do Moe</option>
             <option value="2">A Casa dos Simpsons</option>
@@ -123,56 +127,52 @@
             <option value="17">Asilo de Springfield</option>
           </select>
         </div>
+      </div>
+
+     <div id="cadastro_p2">
 
         <div class="div_campo">
           <h3>E-mail:</h3>
-          <input type="text" id="input_email" class="campo">
+          <input type="text" id="input_email" class="campo" placeholder="amorosquinhas@email.com">
         </div>
 
         <div class="div_campo">
           <h3>Senha</h3>
-          <input type="text" id="input_senha" class="campo">
+          <input type="text" id="input_senha" class="campo" placeholder="amorosquinhas123">
         </div>
 
         <div class="div_campo">
           <h3>Confirme a sua senha</h3>
-          <input type="text" id="input_confirmacao" class="campo">
+          <input type="text" id="input_confirmacao" class="campo" placeholder="amorosquinhas123">
         </div>
 
         <div class="div_btn">
-          <button onclick="cadastrar()">Cadastrar</button>
+          <button onclick="cadastrar()" class="btn-cadLog">Próximo
+
+            <img src="./assets/imgs/seta.svg" alt="" id="svg-seta">
+          </button>
         </div>
 
 
       </div>
 
-      <div id="cadastro_p2" style="display: none;">
+      <div id="cadastro_p3" style="display: none;" >
         <div class="div_campo">
           <h3>Por que você gosta tanto de Simpsons?</h3>
-          <textarea name="" maxlength=200 id="txtArea_msg"></textarea>
+          <textarea maxlength=200 id="txtArea_msg"></textarea>
+          <button onclick="cadastrarMensagem()"  class="btn-cadLog">Finalizar
         </div>
-        <button onclick="cadastrarMensagem()">Enviar</button>
+        </button>
       </div>
       <div id="div_aguardar" class="loading-div">
       </div>
 
-      <div id="div_erros_login"></div>
     </div>
 
   </main>
 
-  <footer>
-    <div class="div_conteudo-footer">
-      <div class="footer-p1">
-        <h3>Heloisy Mota</h3>
-        <a href="https://github.com/HeloisyOM/projetoIndividual"><img src="./assets/imgs/logo-git.svg"
-            alt="logo git hub" width="50px"></a>
-      </div>
-      <div class="footer-p2">
-        <h4>© 2025</h4>
-      </div>
-    </div>
-  </footer>
+
+  </div>
 
 </body>
 
@@ -228,9 +228,14 @@
       mensagem_erro.innerHTML ="O e-mail não tem '@'!";
       finalizarAguardar();
       return false;
-    }else if(senha.length<8){
+    }else if(email=='@'){
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML ="A senha tem que ter 8 caracteres!";
+      mensagem_erro.innerHTML ="E-mail inválido!";
+      finalizarAguardar();
+      return false;
+    }else if(senha.length>40){
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML ="A senha pode ter até 40 caracteres!";
       finalizarAguardar();
       return false;
     }else if(confirmacaoSenha != senha){
@@ -276,11 +281,11 @@
         idUsuarioAtual = json.insertId; /*Armazena o últido id inserido*/
         console.log("ID do usuário cadastrado:", idUsuarioAtual) /*mostra no console*/
 
-        cadastro_p2.style.display = "block";
+        cadastro_p3.style.display = "block";
+        cadastro_p2.style.display = "none";
         cadastro_p1.style.display = "none";
         cardErro.style.display = "block";
 
-        limparFormulario();
         finalizarAguardar();
 
       })

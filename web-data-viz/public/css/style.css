@@ -7,9 +7,10 @@
     padding: 0;
 }
 
-body{
+body {
     min-height: 100vh;
 }
+
 /*Começo navbar*/
 
 header {
@@ -89,7 +90,7 @@ main {
     font-size: 6rem;
     max-width: 85%;
     letter-spacing: 1px;
-    color: #4957B3;
+    color: #3c4dcb;
     line-height: 98%;
     font-family: "Mochiy Pop P One", sans-serif;
 }
@@ -105,11 +106,12 @@ main {
     margin: 0;
     padding: 0;
     margin-right: 0%;
-    padding-top: 6%;
+    padding-top: 3%;
 }
 
 #div_img-banner #img-banner {
-    width: 35rem;
+    width: 40rem;
+
     display: block;
 
 }
@@ -127,7 +129,7 @@ main {
 }
 
 #sobreNos .div_texto {
-    text-align: end;
+    text-align: center;
 }
 
 #sobreNos .div_texto h1 {
@@ -138,11 +140,16 @@ main {
     font-size: 4rem;
     font-family: "Mochiy Pop P One", sans-serif;
     margin-top: 0;
-
 }
 
 #sobreNos h3 {
-    width: 42rem;
+    width: 85rem;
+    padding-top: 3rem;
+
+}
+
+#div_img-banner {
+    margin-top: 10rem;
 }
 
 #img-sobre {
@@ -436,19 +443,12 @@ h2 {
 
 /*Fim do jornal*/
 
-
-
-
-/*Fim cadastro*/
-
-
 /*Começo Footer*/
 
 footer {
     background-color: #4957B3;
     height: 8rem;
     font-size: 1.2em;
-    
 }
 
 footer h3,

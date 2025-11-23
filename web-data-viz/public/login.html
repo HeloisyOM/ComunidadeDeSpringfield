@@ -15,78 +15,67 @@
 
 <body>
 
-    <header>
+  <div class="div_background">
 
-    <nav>
+   <nav>
+      <div class="div-menu">
+
         <ul>
-            <li>
-                <a href=index.html>Home</a>
-            </li>
-            <li>
-                <a href=index.html#sobreNos>Sobre o projeto</a>
-            </li>
-            <li>
-                <a href="index.html#origem">Origem</a>
-            </li>
-            <li>
-                <a href="index.html#personagem">Personagens</a>
-            </li>
-            <li>
-                <a href=jornal.html>Jornal da Cidade</a>
-            </li>
-            <li>
-                <a href="cadastro.html">Cadastro | </a><a href="login.html">Login</a>
-            </li>
+          <li>
+            <a href=index.html>Home</a>
+          </li>
+          <li>
+            <a href=index.html#sobreNos>Sobre o projeto</a>
+          </li>
+          <li>
+            <a href="index.html#origem">Origem</a>
+          </li>
+          <li>
+            <a href="index.html#personagem">Personagens</a>
+          </li>
+          <li>
+            <a href=jornal.html>Jornal da Cidade</a>
+          </li>
+          <li>
+            <a href="cadastro.html">Cadastro  </a> | <a href="login.html">Login</a>
+          </li>
         </ul>
+      </div>
     </nav>
-
-    </header>
     <div class="alerta_erro">
-        <div class="card_erro" id="cardErro">
-            <span id="mensagem_erro"></span>
-        </div>
+    <div class="card_erro" id="cardErro">
+      <span id="mensagem_erro"></span>
     </div>
+  </div>
 
-    <main>
+    <main id="main-login">
+        <h2>Bem-vindo(a) de volta!</h2>
 
-        <div class="login">
-            <div class="container">
-                <div class="card card-login">
-                    <h2>Olá de volta!</h2>
-                    <div class="formulario">
+        <div id="div_conteudo-login">
+            
+                    <div id="div_login">
                         <div class="div_campo">
-                            <span>E-mail:</span>
-                            <input id="input_email" type="text" placeholder="Login" class="campo">
+                            <h3>E-mail:</h3>
+                            <input id="input_email" type="text" placeholder="elbarto@email.com" class="campo">
                         </div>
                         <div class="div_campo">
-                            <span>Senha:</span>
+                            <h3>Senha:</h3>
                             <input id="input_senha" type="password" placeholder="********" class="campo">
                         </div>
-                        <button class="botao" onclick="entrar()">Entrar</button>
+                        <div id="div_aguardar" class="loading-div">
+                            <img src="./assets/loading.gif" id="loading-gif" width="150">
+                        </div>
+                        <button onclick="entrar()" class="btn-cadLog">Entrar</button>
+                        <h4>Não possui uma conta? <a href="./cadastro.html">Cadastre-se</a></h4>
+                    
                     </div>
-    
-                    <div id="div_aguardar" class="loading-div">
-                        <img src="./assets/.gif" id="loading-gif">
-                    </div>
-    
                     <div id="div_erros_login"></div>
-                </div>
-            </div>
+
         </div>
 
     </main>
 
-    <footer>
-            <div class="div_conteudo-footer">
-                <div class="footer-p1">
-                    <h3>Heloisy Mota</h3>
-                    <a href="https://github.com/HeloisyOM/projetoIndividual"><img src="./assets/imgs/logo-git.svg" alt="logo git hub" width="50px"></a>
-                </div>
-                <div class="footer-p2">
-                <h4>© 2025</h4>
-                </div>
-            </div>
-        </footer>
+  </div>
 </body>
 
 </html>
@@ -102,7 +91,8 @@
 
         if (email == "" || senha == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            mensagem_erro.innerHTML = "Preencha os campos antes de continuar!";
             finalizarAguardar();
             return false;
         }
