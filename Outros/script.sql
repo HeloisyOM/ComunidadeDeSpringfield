@@ -1,17 +1,18 @@
 create database projetoIndividual;
 use projetoIndividual;
 
+
 create table personagem(
 idPersonagem int primary key auto_increment ,
 nome varchar(45),
 caminhoImg varchar(200)
-) auto_increment=10;
+);
 
 create table lugar(
 idLugar int primary key auto_increment,
 nome varchar(45),
 caminhoImg varchar(200)
-) auto_increment=20;
+);
 
 create table usuario(
 idUsuario int primary key auto_increment,
@@ -27,7 +28,7 @@ genero varchar(9) not null,
 constraint chkGenero
 	check(genero in('Feminino','Masculino','Outros')),
 email varchar(255) not null unique,
-senha char(8)
+senha varchar(40) not null
 );
 
 create table mensagem(
@@ -106,6 +107,14 @@ select * from mensagem;
 select * from compra;
 show tables;
 
+select idUsuario,fkPersonagem,fkLugar, u.nome, email,p.nome as personagem, p.caminhoImg, l.nome as lugar, l.caminhoImg 
+from usuario as u join personagem as p
+	on u.fkPersonagem = p.idPersonagem
+		join lugar as l
+			on u.fkLugar = l.idLugar;
+        
+        
+        
 /*Gráfico do top 3 personagens favoritos*/
 select p.nome as personagem,
 count(u.fkPersonagem) as total
@@ -161,8 +170,8 @@ limit 1;
 select ROUND(avg(totalGasto)) as MediaGeral from compra;
 
 /*Idade*/
-	select AVG(timestampdiff(year,dataNasc, curdate())) as idade from usuario;
-select timestampdiff(year,dataNasc, curdate()) as idade from usuario;
+	select AVG(timestampdiff(year,dataNasc, now())) as idade from usuario;
+select timestampdiff(year,dataNasc, now()) as idade from usuario;
 
 /*grafico de distribuicao de faixa etária */
 select
