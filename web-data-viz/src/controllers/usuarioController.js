@@ -83,7 +83,25 @@ function cadastrar(req, res) {
     }
 }
 
+function preferencias(req,res){
+    var idUsuario = req.params.idUsuario;
+
+    usuarioModel.buscarDados(idUsuario)
+        .then(function(resultado) {
+            if (resultado.length > 0) {
+                res.json(resultado[0]);
+            } else {
+                res.status(404).send(`Usuário ${idUsuario} não encontrado.`);
+            }
+        })
+        .catch(function(erro) {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    preferencias
 }

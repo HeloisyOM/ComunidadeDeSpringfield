@@ -151,6 +151,11 @@ order by totalGasto desc;;
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
 }
+
+//Preferencias user
+
+
+
 module.exports = {
     top3Lugares,
     top3Perso,
