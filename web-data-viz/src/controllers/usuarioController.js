@@ -26,6 +26,8 @@ function autenticar(req, res) {
                                         senha: resultadoAutenticar[0].senha,
                                         fkPersonagem: resultadoAutenticar[0].fkPersonagem,
                                         fkLugar: resultadoAutenticar[0].fkLugar,
+                                        msg: resultadoAutenticar[0].msg,
+
                                     });
                                 
                     } else if (resultadoAutenticar.length == 0) {
@@ -46,7 +48,6 @@ function autenticar(req, res) {
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var fkPersonagem = req.body.personagemServer;
     var fkLugar = req.body.lugarfavServer;
     var nome = req.body.nomeServer;

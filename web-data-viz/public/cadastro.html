@@ -265,21 +265,48 @@
         emailServer: email,
         senhaServer: senha,
       }),
-    })
-      .then(function (resposta) {
+    }).then(function (resposta) {
+          console.log("resposta: ", resposta);
+      
+          if (resposta.ok) {
+         /*  sessionStorage.ID_USUARIO =  */
+          resposta.json().then(function (resposta) {
+          idUsuarioAtual = resposta.insertId;
+          console.log("ID do usuário cadastrado:", idUsuarioAtual)
+
+          cadastro_p3.style.display = "block";
+          cadastro_p2.style.display = "none";
+          cadastro_p1.style.display = "none";
+          cardErro.style.display = "block";
+
+         finalizarAguardar();
+          })  
+            /* finalizarAguardar();*/
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
+        });
+      return false;
+    }
+  
+      /* .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (!resposta.ok) {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
         else {
-          return resposta.json(); /*retorna em json o que foi mandado no controller para poder armazenar o id*/
+          return resposta.json(); 
         }
 
       })
       .then(json => {
-        idUsuarioAtual = json.insertId; /*Armazena o últido id inserido*/
-        console.log("ID do usuário cadastrado:", idUsuarioAtual) /*mostra no console*/
+        idUsuarioAtual = json.insertId;
+        console.log("ID do usuário cadastrado:", idUsuarioAtual)
 
         cadastro_p3.style.display = "block";
         cadastro_p2.style.display = "none";
@@ -292,10 +319,9 @@
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
         finalizarAguardar();
-      });
+      }); */
 
-    return false;
-  }
+  
 
 
   function cadastrarMensagem() {

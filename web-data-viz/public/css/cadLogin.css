@@ -21,13 +21,13 @@ body {
 
 .div_background {
     backdrop-filter: blur(4px) brightness(0.9);
-    z-index: 1;
+    height: 100%;
 }
 
 nav {
     position: fixed;
     height: 40px;
-    transition: 1.5s;
+    transition: 3.5s;
     width: 100%;
 }
 
@@ -38,7 +38,7 @@ nav {
 
 nav:hover {
     height: 90px;
-    transition: 1.5s;
+    transition: 3.5s;
 }
 
 
@@ -54,19 +54,16 @@ nav ul {
 }
 
 nav a {
-    font-size: 20px;
+    font-size: 22px;
     color: #000b4f;
     font-weight: 700;
     text-decoration: none;
 }
 
 nav a:hover {
-    background-color: #ffc400;
     border: 0;
     border-radius: 2px;
-    color: white;
-    padding-left: 10px;
-    padding-right: 10px;
+       font-size: 24px;
 
 }
 
@@ -82,10 +79,9 @@ main {
 }
 
 main h2 {
-    color: transparent;
-    background-color: #ffc400;
-    background-clip: text;
-    font-family: "Mochiy Pop P One", sans-serif;
+    color: #ffc400;
+text-shadow: -2px -2px 2px #000000;    
+font-family: "Mochiy Pop P One", sans-serif;
     font-size: 5rem;
 }
 

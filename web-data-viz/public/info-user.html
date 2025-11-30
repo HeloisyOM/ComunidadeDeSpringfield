@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <body onload="preferencias()">
+    <body >
     
     <main>
         <div class="navbar-lateral">
@@ -43,6 +43,7 @@
 
                 <div id="mensagem">
                     <h3>Para você se lembrar sempre</h3>
+                    <span id="msg"></span>
                 </div>
 
                 <div id="preferencias">
@@ -61,8 +62,8 @@
 <script>
         nome_user.innerHTML = sessionStorage.NOME_USUARIO;
         var idUsuario = Number(sessionStorage.ID_USUARIO);
-
-    function preferencias(){
+        msg.innerHTML =sessionStorage.MSG_USUARIO;
+    /* function preferencias(){
 
         fetch(`/usuario/preferencias`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -79,6 +80,6 @@
         })
             .catch(function (error) {
                 console.error(`Erro no fetch  da kpi1 de Idade Média`, error);
-            });
-    }
+            }); */
+   /*  } */
 </script>
