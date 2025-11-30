@@ -1,7 +1,6 @@
 create database projetoIndividual;
 use projetoIndividual;
 
-
 create table personagem(
 idPersonagem int primary key auto_increment ,
 nome varchar(45),
@@ -28,7 +27,7 @@ genero varchar(9) not null,
 constraint chkGenero
 	check(genero in('Feminino','Masculino','Outros')),
 email varchar(255) not null unique,
-senha varchar(40) not null
+senha char(8)
 );
 
 create table mensagem(
@@ -56,48 +55,48 @@ constraint fkComUser foreign key (fkUsuario)
 );
 
 show tables;
-
 insert into personagem values
-(default,'Homer Simpson','.assets/imgs/personagens/img-homer'),
-(default,'Marge Simpson','.assets/imgs/personagens/img-marge'),
-(default,'Bart Simpson','.assets/imgs/personagens/img-bart'),
-(default,'Lisa Simpson','.assets/imgs/personagens/img-lisa'),
-(default,'Maggie Simpson','.assets/imgs/personagens/img-maggie'),
-(default,'Sideshow Bob','.assets/imgs/personagens/img-side'),
-(default,'Ned Flanders','.assets/imgs/personagens/img-ned'),
-(default,'Milhouse Van Houten','.assets/imgs/personagens/img-mil'),
-(default,'Krusy','.assets/imgs/personagens/img-krus'),
-(default,'Moe Szyslak','.assets/imgs/personagens/img-moe'),
-(default,'Chef Wiggum','.assets/imgs/personagens/img-wig'),
-(default,'Ralph Wiggum','.assets/imgs/personagens/img-ralph'),
-(default,'Apu Nahasapeemapetilon','.assets/imgs/personagens/img-apu'),
-(default,'Montgomery Burns','.assets/imgs/personagens/img-burns'),
-(default,'Smithers','.assets/imgs/personagens/img-smithers'),
-(default,'Cara dos Quadrinhos','.assets/imgs/personagens/img-comic'),
-(default,'Nelson Muntz','.assets/imgs/personagens/img-nelson'),
-(default,'Skinner','.assets/imgs/personagens/img-skinner'),
-(default,'Patty Bouvier','.assets/imgs/personagens/img-patty'),
-(default,'Selma Bouvier','.assets/imgs/personagens/img-selma');
+(default,'Apu Nahasapeemapetilon','"./assets/imgs/personagens/img_apu.png"'),
+(default,'Bart Simpson','"./assets/imgs/personagens/img_bart.png"'),
+(default,'Carl Carlson','"./assets/imgs/personagens/img_karl.png"'),
+(default,'Cara dos Quadrinhos','"./assets/imgs/personagens/img_comic.png"'),
+(default,'Chief Wiggum','./assets/imgs/personagens/img_chef.png"'),
+(default,'Homer Simpson','"./assets/imgs/personagens/img_homer.png"'),
+(default,'Krusty, o Palhaço','"./assets/imgs/personagens/img_krusty.png"'),
+(default,'Lenny Leonard','"./assets/imgs/personagens/img_lenny.png"'),
+(default,'Lisa Simpson','"./assets/imgs/personagens/img_lisa.png"'),
+(default,'Maggie Simpson','"./assets/imgs/personagens/img_maggie.png"'),
+(default,'Marge Simpson','"./assets/imgs/personagens/img_mage.png"'),
+(default,'Milhouse Van Houten','"./assets/imgs/personagens/img_mil.png"'),
+(default,'Moe Szyslak','"./assets/imgs/personagens/img_moe.png"'),
+(default,'Montgomery Burns','"./assets/imgs/personagens/img_burns.png"'),
+(default,'Ned Flanders','"./assets/imgs/personagens/img_ned.png"'),
+(default,'Nelson Muntz','"./assets/imgs/personagens/img_nelson.png" '),
+(default,'Vovó Simpson','"./assets/imgs/personagens/img_vovo.png" '),
+(default,'Seymour Skinner','"./assets/imgs/personagens/img_skner.png"'),
+(default,'Waylon Smithers','"./assets/imgs/personagens/img_smithers.png"');
+
 
 
 insert into lugar values
-(default,'Bar do Moe','.assets/imgs/lugares/barMoe'),
-(default,'A Casa dos Simpsons','.assets/imgs/lugares/casasSimp'),
-(default,'Usina Nuclear de Springfield','.assets/imgs/lugares/usina'),
-(default,'Escola Elementar de Springfield','.assets/imgs/lugares/escola'),
-(default,'Kwik-E-Mart','.assets/imgs/lugares/kwik'),
-(default,'Igreja de Springfield','.assets/imgs/lugares/igreja'),
-(default,'Krusy Burger','.assets/imgs/lugares/img-krusyBurger'),
-(default,'Springfield Mall','.assets/imgs/lugares/img-mall'),
-(default,'Hospital Geral de Springfield','.assets/imgs/lugares/img-hospital'),
-(default,'Prefeitura de Springfield','.assets/imgs/lugares/img-prefeitura'),
-(default,'Departamento de Polícia de Springfield','.assets/imgs/lugares/img-police'),
-(default,'Casa do Flanders','.assets/imgs/lugares/img-casaFlanders'),
-(default,'Central de Televisão Canal 6','.assets/imgs/lugares/img-canal6'),
-(default,'Incêndio de Pneus (Tire Fire)', '.assets/imgs/lugares/img-tireFire'),
-(default,'Museu de Springfield','.assets/imgs/lugares//img-museu'),
-(default,'Esádio de Springfield ','.assets/imgs/lugares/img-esadio'),
-(default,'Springfield Ásilo','.assets/imgs/lugares/img-asilo');
+(default,'A Casa dos Simpsons','".assets/imgs/lugares/casasSimp"'),
+(default,'Bar do Moe','".assets/imgs/lugares/barMoe"'),
+(default,'Casa do Flanders','".assets/imgs/lugares/img-casaFlanders"'),
+(default,'Central de Televisão Canal 6','".assets/imgs/lugares/img-canal6"'),
+(default,'Departamento de Polícia de Springfield','".assets/imgs/lugares/img-police"'),
+(default,'Escola Elementar de Springfield','".assets/imgs/lugares/escola"'),
+(default,'Estádio de Springfield','".assets/imgs/lugares/img-esadio"'),
+(default,'Hospital Geral de Springfield','".assets/imgs/lugares/img-hospital"'),
+(default,'Incêndio de Pneus (Tire Fire)','".assets/imgs/lugares/img-tireFire"'),
+(default,'Igreja de Springfield','".assets/imgs/lugares/igreja"'),
+(default,'Krusty Burger','".assets/imgs/lugares/img-krusyBurger"'),
+(default,'Kwik-E-Mart','".assets/imgs/lugares/kwik"'),
+(default,'Museu de Springfield','".assets/imgs/lugares/img-museu"'),
+(default,'Prefeitura de Springfield','".assets/imgs/lugares/img-prefeitura"'),
+(default,'Springfield Asilo','".assets/imgs/lugares/img-asilo"'),
+(default,'Springfield Mall','".assets/imgs/lugares/img-mall"'),
+(default,'Usina Nuclear de Springfield','".assets/imgs/lugares/usina"');
+
 
 
 select * from personagem;
@@ -107,14 +106,6 @@ select * from mensagem;
 select * from compra;
 show tables;
 
-select idUsuario,fkPersonagem,fkLugar, u.nome, email,p.nome as personagem, p.caminhoImg, l.nome as lugar, l.caminhoImg 
-from usuario as u join personagem as p
-	on u.fkPersonagem = p.idPersonagem
-		join lugar as l
-			on u.fkLugar = l.idLugar;
-        
-        
-        
 /*Gráfico do top 3 personagens favoritos*/
 select p.nome as personagem,
 count(u.fkPersonagem) as total
@@ -167,20 +158,18 @@ limit 1;
 
 /*KPI média de compra da Comunidade*/
 
-select ROUND(avg(totalGasto)) as MediaGeral from compra;
+select ROUND(avg(totalGasto),2) as MediaGeral from compra;
 
 /*Idade*/
-	select AVG(timestampdiff(year,dataNasc, now())) as idade from usuario;
-select timestampdiff(year,dataNasc, now()) as idade from usuario;
+	select ROUND(AVG(timestampdiff(year,dataNasc, curdate()))) as idade from usuario;
 
 /*grafico de distribuicao de faixa etária */
 select
 case 
-when timestampdiff(year,dataNasc, curdate()) between 0 and 12 then '0-12'
-when timestampdiff(year,dataNasc, curdate()) between 13 and 	17 then '13-17'
+when timestampdiff(year,dataNasc, curdate()) between 12 and 17 then '12-17'
 when timestampdiff(year,dataNasc, curdate()) between 18 and 25 then '18-25'
 when timestampdiff(year,dataNasc, curdate()) between 26 and 40 then '26-40'
-else '41+'
+else '+41'
 end as faixa,
 	count(*) as valores
     from usuario
@@ -191,8 +180,10 @@ select DISTINCT(totalGasto) from compra
 order by totalGasto desc
 limit 1;
 
-select SUM(totalGasto) from compra
+select ROUND(AVG(totalGasto),2) from compra
 order by totalGasto desc;
+
+           select SUM(totalGasto) as totalGeral from compra order by totalGasto desc;
 
 /*Gŕafico de faixa de total gasto no mercadinh*/
 select 
@@ -204,5 +195,28 @@ when totalGasto>70 and totalGasto<=100 then 'Até R$100,00 reais'
 when totalGasto>100 and totalGasto<=150 then 'Até R$150,00 reais'
 when totalGasto>150 and totalGasto<=200 then 'Até R$200,00'
 else 'Maior que R$200,00'
-end as faixaGasto
-from compra;
+end as faixaGasto,
+count(*) as valores
+    from compra
+    group by faixaGasto
+		order by valores desc;
+
+
+ select (select SUM(rosquinha) as rosquinha, SUM(duff) as duff , SUM(panqueca) as panqueca , SUM(pizzaLuigi) as pizza  , 
+SUM(BuzzCola) as bzzCola, SUM(taco) as taco , SUM(hamburguer) as burguer  , SUM(hotdog) as hotdog ) as venda
+from compra
+order by venda desc;
+
+
+
+select SUM(rosquinha) as rosquinha, SUM(duff) as duff , SUM(panqueca) as panqueca , SUM(pizzaLuigi) as pizza  , 
+SUM(BuzzCola) as bzzCola, SUM(taco) as taco , SUM(hamburguer) as burguer  , SUM(hotdog) as hotdog 
+from compra; 
+
+select idUsuario,fkPersonagem,fkLugar, u.nome, email,p.nome as personagem, p.caminhoImg as imgP, l.nome as lugar, l.caminhoImg as imgL,conteudo
+from usuario as u join personagem as p
+	on u.fkPersonagem = p.idPersonagem
+		join mensagem
+        on idUsuario = fkUsuario
+		join lugar as l
+			on u.fkLugar = l.idLugar;
