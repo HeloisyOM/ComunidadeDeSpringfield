@@ -27,7 +27,9 @@ function autenticar(req, res) {
                                         fkPersonagem: resultadoAutenticar[0].fkPersonagem,
                                         fkLugar: resultadoAutenticar[0].fkLugar,
                                         msg: resultadoAutenticar[0].msg,
-
+                                        imgP: resultadoAutenticar[0].imgP,
+                                        imgL: resultadoAutenticar[0].imgL,
+                                        kpiP: resultadoAutenticar[0].kpiP,
                                     });
                                 
                     } else if (resultadoAutenticar.length == 0) {
@@ -84,7 +86,7 @@ function cadastrar(req, res) {
     }
 }
 
-function preferencias(req,res){
+/* function preferencias(req,res){
     var idUsuario = req.params.idUsuario;
 
     usuarioModel.buscarDados(idUsuario)
@@ -99,10 +101,10 @@ function preferencias(req,res){
             console.log(erro);
             res.status(500).json(erro.sqlMessage);
         });
-}
+} */
 
 module.exports = {
     autenticar,
     cadastrar,
-    preferencias
+    /* preferencias */
 }

@@ -45,8 +45,7 @@ function faixaEtaria() {
     var instrucaoSql = `
         select
         case 
-        when timestampdiff(year,dataNasc, now()) between 0 and 12 then '0-12'
-        when timestampdiff(year,dataNasc, now()) between 13 and 17 then '13-17'
+        when timestampdiff(year,dataNasc, now()) between 12 and 17 then '12-17'
         when timestampdiff(year,dataNasc, now()) between 18 and 25 then '18-25'
         when timestampdiff(year,dataNasc, now()) between 26 and 40 then '26-40'
         else '41+'
@@ -71,7 +70,7 @@ function faixaGasto() {
         when totalGasto>70 and totalGasto<=100 then 'Até R$100,00 reais'
         when totalGasto>100 and totalGasto<=150 then 'Até R$150,00 reais'
         when totalGasto>150 and totalGasto<=200 then 'Até R$200,00'
-        else 'Maior que R$200,00'
+        else '+R$200,00'
         end as faixaGasto,
         count(*) as valores
             from compra

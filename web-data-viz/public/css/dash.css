@@ -5,68 +5,262 @@
     font-family: "Hind", sans-serif;
     margin: 0;
     padding: 0;
+    color: #3E2429;
 }
 
-* {
-  margin: 0;
-  box-sizing: border-box;
-}
-
-main{
+main {
     display: flex;
     flex-direction: row;
 }
-.navbar-lateral {
-  display: flex;
-  flex-direction: column;
-  background-color: #53a8e0;
-  color: #3E2429;
-  justify-content: space-between;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-  width: 15%;
+
+aside {
+    display: flex;
+    flex-direction: column;
+    background-color: #fd4a9b;
+    align-items: center;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    width: 20%;
+    font-size: 20px;
+    padding-top: 3.5rem;
 }
 
-#div_conteudo-dash{
-    width: 85%;
-
-}
-.div_kpis{
+.div_saudacoes,
+#div_conteudoCentral,
+.div_conteudo-nav,
+#preferencias,
+#mensagem {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    padding-top:3rem ;
+    align-items: center;
+    flex-direction: column;
 }
-.kpi{
-    background-color: rgb(211, 211, 211);
-    width: 15rem;
-    height: 9rem;
-    border: 0;
-    border-radius: 10px;
+.div_saudacoes h2, span{
+    color: white;
+}
+
+.div_saudacoes h2{
+    font-size: 28px;
+}
+#div_conteudoCentral {
+    width: 76%;
+    margin-left: 38px;
+}
+
+#preferencias {
+    background-color: white;
+    border-radius: 5px;
+    border: 0 solid;
+}
+
+#personagemFav img {
+    width: 90%;
+    padding-bottom: 5%;
+    padding: 10px;
+}
+
+#mensagem h4 {
+    max-width: 280px;
+    font-size: 17px;
+    color: #a8a8a8;
+    overflow-wrap: break-word;
+    margin-left: 3px;
+    text-align: center;
+}
+
+#mensagem {
+    height: 270px;
+    width: 315px;
+}
+
+#mensagem h3 {
+    font-size: 21.3px;
+}
+
+#div_lugar {
+    width: 300px;
+    border-radius: 5px;
+    border: 0 solid;
+    margin-top: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column  ;
+    flex-direction: column;
+}
+
+#div_lugar img {
+}
+
+#div_navbarTop {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10rem;
+    background-color: rgb(26, 99, 148);
+    width: 95.3rem;
+    height: 4rem;
+    font-size: 20px;
+    padding: 1%;
+    top: 0;
+    font-weight: bold;
+    position: sticky;
+}
+
+#div_navbarTop a {
+    color: white;
+    text-decoration: none;
+}
+
+#div_navbarTop button {
+    background-color: #fd4a9b;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    width: 10rem;
+    height: 3rem;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#div_navbarTop button img {
+    width: 30px;
+}
+
+.div_kpis {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding-top: 1rem;
+    padding-left: 20px;
+
+}
+
+.kpi {
+    width: 15rem;
+    height: 10rem;
+    border: 0;
+    border-radius: 10px;
+    gap: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#img-vendas {
+    width: 45px;
+}
+
+#img_idade,
+#img_genero {
+    width: 80px;
 }
 
 /*gráficos*/
+#div_conteudo-dash {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px;
+}
 
-.div_graficos{
+.div_graficos {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     padding: 5%;
-    }
-.graficos{
+}
+
+.graficos {
     display: flex;
-  flex-direction: row;
-/*   justify-content: space-evenly;
+    flex-direction: row;
+    /*   justify-content: space-evenly;
 
  */
-gap: 4rem;
+    gap: 4rem;
 }
-.grafico1{
-      
+
+.grafico {
+    width: 600px;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    border: 5px solid #c8c7c7;
+    padding: 3rem;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#graficoB2 {
+    width: 600px;
+    height: 400px;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    border: 5px solid #c8c7c7;
+    padding: 2rem;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.graficoP {
+    width: 592px;
+    height: 400px;
+    margin-bottom: 5%;
+    border-radius: 5px;
+    border: 5px solid #c8c7c7;
+    padding: 2rem;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#grafico_Genero {
+    width: 350px;
+}
+
+#grafico_Gasto,
+#grafico_Faixa {
+    width: 550px;
+}
+
+#grafico_Top3P,
+#grafico_Top3L {
+    width: 450px;
+
+}
+
+#kpiP img {
+    width: 50px;
+    height: auto;
+    display: block;
+}
+
+#kpiL img {
+    width: 90px;
+    height: auto;
+    display: block;
 }
 
 /*Aqui começa o mercado*/
