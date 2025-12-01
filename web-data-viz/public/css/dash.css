@@ -16,7 +16,7 @@ main {
 aside {
     display: flex;
     flex-direction: column;
-    background-color: #fd4a9b;
+    background-color: #ed75ab;
     align-items: center;
     height: 100vh;
     position: sticky;
@@ -24,6 +24,33 @@ aside {
     width: 20%;
     font-size: 20px;
     padding-top: 3.5rem;
+}
+
+aside button {
+    background-color: rgb(51, 110, 149);
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    width: 20rem;
+    height: 3rem;
+    font-size: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+    gap: 10px;
+}
+
+aside button:hover {
+    background-color: #ffb300;
+
+}
+
+aside button img {
+    width: 30px;
 }
 
 .div_saudacoes,
@@ -36,13 +63,16 @@ aside {
     align-items: center;
     flex-direction: column;
 }
-.div_saudacoes h2, span{
+
+.div_saudacoes h2,
+span {
     color: white;
 }
 
-.div_saudacoes h2{
+.div_saudacoes h2 {
     font-size: 28px;
 }
+
 #div_conteudoCentral {
     width: 76%;
     margin-left: 38px;
@@ -67,6 +97,7 @@ aside {
     overflow-wrap: break-word;
     margin-left: 3px;
     text-align: center;
+    font-style: italic;
 }
 
 #mensagem {
@@ -89,19 +120,16 @@ aside {
     flex-direction: column;
 }
 
-#div_lugar img {
-}
-
 #div_navbarTop {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 10rem;
-    background-color: rgb(26, 99, 148);
+    background-color: rgb(51, 110, 149);
     width: 95.3rem;
     height: 4rem;
     font-size: 20px;
-    padding: 1%;
+    padding: 2%;
     top: 0;
     font-weight: bold;
     position: sticky;
@@ -112,25 +140,7 @@ aside {
     text-decoration: none;
 }
 
-#div_navbarTop button {
-    background-color: #fd4a9b;
-    border: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    color: white;
-    width: 10rem;
-    height: 3rem;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-#div_navbarTop button img {
-    width: 30px;
-}
 
 .div_kpis {
     display: flex;
@@ -189,9 +199,6 @@ aside {
 .graficos {
     display: flex;
     flex-direction: row;
-    /*   justify-content: space-evenly;
-
- */
     gap: 4rem;
 }
 
@@ -263,9 +270,3 @@ aside {
     display: block;
 }
 
-/*Aqui começa o mercado*/
-
-/*Aqui começa as infos do user*/
-
-
-/*Aqui acaba as infos do user*/
