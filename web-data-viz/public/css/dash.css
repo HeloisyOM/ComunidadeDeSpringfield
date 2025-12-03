@@ -10,7 +10,6 @@
 
 main {
     display: flex;
-    flex-direction: row;
 }
 
 aside {
@@ -74,8 +73,7 @@ span {
 }
 
 #div_conteudoCentral {
-    width: 76%;
-    margin-left: 38px;
+    width: 80%;
 }
 
 #preferencias {
@@ -126,7 +124,7 @@ span {
     justify-content: flex-end;
     gap: 10rem;
     background-color: rgb(51, 110, 149);
-    width: 95.3rem;
+    width: 100%;
     height: 4rem;
     font-size: 20px;
     padding: 2%;

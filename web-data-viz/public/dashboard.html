@@ -123,7 +123,7 @@
                         </div>
                         <div class="grafico">
                             <h4>Produtos</h4>
-                            <canvas id="grafico_Total"></canvas>
+                            <div id="grafico_Produtos"></div>
                         </div>
                     </div>
                     <div class="graficos">
@@ -169,7 +169,7 @@
         obterDadosFaixaIdade();
         obterDadosGasto();
         mostrarKpis();
-
+rankingProd();
     }
 
 
@@ -577,64 +577,55 @@
         );
     }
 
-    /* function rankingProd() {
-        fetch(`/dashboard/ranking`, { cache: 'no-store' }).then(function (response) {
+function rankingProd() {
+
+    var mensagem=""
+    fetch(`/dashboard/ranking`, { cache: 'no-store' })
+        .then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
-                    console.log("A faixa gasto:", resposta);
- 
-                    var item = resposta[0];
-                    var lista = ['rosquinha', 'duff', 'panqueca', 'pizza', 'bzzCola', 'taco', 'burguer', 'hotdog']
-                    var totalProdutos = 0;
-                    var primeiro
-                    var pares = []
- 
-                    for (var i = 0; i < lista.length; i++) {
- 
-                        dadoResposta = item[lista[i]];
-                        var nome = lista[i];
-                        var valor = item[nome];
-                        var par = [nome, valor];
-                        pares.push(par);
-                    }
- 
- 
-               
-                    
-                    var ranking = [];
- 
-                    while (ranking.length < pares.length) {
- 
- 
-                        
-                        
-                        for(i=0; i<pares.length; i++){
-                            var itemAtual = pares[i]
-                            var maior = pares[i][1];
-                            var menor = pares[i][1];
- 
-                            if(maior>menor){
-                                menor = itemAtual[i]
-                            }else{
-                                maior = itemAtual[i]
+                console.log("Ranking de produtos:", resposta);
+
+                var listaProduto = [
+                    ['Rosquinha', Number(resposta[0].rosquinha)],
+                    ['Duff', Number(resposta[0].duff)],
+                    ['Panqueca', Number(resposta[0].panqueca)],
+                    ['Pizza', Number(resposta[0].pizza)],
+                    ['Buzz Cola', Number(resposta[0].bzzCola)],
+                    ['Taco', Number(resposta[0].taco)],
+                    ['Hamburguer', Number(resposta[0].burguer)],
+                    ['Hot Dog', Number(resposta[0].hotdog)]
+                ];
+                    console.log(listaProduto);
+                    for(var posicao=0; posicao<listaProduto.length;posicao++){
+                       var maiorQuantidade = i;
+
+                        for (var proximaPosicao = i + 1; proximaPosicao < listaProduto.length; proximaPosicao++) {
+                            if (listaProduto[j][1] > listaProduto[maiorQuantidade][1]) {
+                                maiorQuantidade = j;
                             }
-                                ranking.push(maior,menor)
- 
                         }
+                        var temp = listaProduto[i];
+                        listaProduto[i] = listaProduto[maiorQuantidade];
+                        listaProduto[maiorQuantidade] = temp;
+                    } 
+                    
+
+                    for(var i =0; i<listaProduto.length; i++){
+                        mensagem+=`${i+1}° lugar - ${listaProduto[i][0]}: ${listaProduto[i][1]} produtos. <br>`
+                    }
+                    grafico_Produtos.innerHTML=mensagem;
+                });
+            }else {
+                    console.error("Nenhum dado encontrado para o ranking!");
+            }
+        })
+        .catch(function (error) {
+            console.error("Erro no fetch do ranking!", error);
+        });
+}
+
  
-                }
-            
-             });
-    } else {
-        console.error("Nenhum dado encontrado para a faixa gasto!");
-    }
-        }).catch (function (error) {
-        console.error(`Erro no fetch da faixa gasto!`);
-    });
-    
-    }
- 
- */
 
     function mostrarKpis() {
 

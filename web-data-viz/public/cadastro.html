@@ -270,8 +270,7 @@
       console.log("resposta: ", resposta);
 
       if (resposta.ok) {
-        /*  sessionStorage.ID_USUARIO =  */
-        resposta.json().then(function (resposta) {
+          resposta.json().then(function (resposta) {
           idUsuarioAtual = resposta.insertId;
           console.log("ID do usuário cadastrado:", idUsuarioAtual)
 
@@ -282,7 +281,6 @@
 
           finalizarAguardar();
         })
-        /* finalizarAguardar();*/
       } else {
         throw "Houve um erro ao tentar realizar o cadastro!";
       }
