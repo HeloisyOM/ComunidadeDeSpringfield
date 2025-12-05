@@ -61,6 +61,8 @@
                             <h3>Senha:</h3>
                             <input id="input_senha" type="password" placeholder="********" class="campo">
                         </div>
+                                            <div id="div_erros_login"></div>
+
                         <div id="div_aguardar" class="loading-div">
                             <img src="./assets/icon/loading.gif" id="loading-gif" width="150">
                         </div>
@@ -68,7 +70,6 @@
                         <h4>Não possui uma conta? <a href="./cadastro.html">Cadastre-se</a></h4>
                     
                     </div>
-                    <div id="div_erros_login"></div>
 
         </div>
 
@@ -153,6 +154,7 @@
 
     function sumirMensagem() {
         cardErro.style.display = "none"
+        div_erros_login.style.display='none'
     }
 
 </script>
