@@ -2,12 +2,12 @@ var database = require("../database/config");
 
 function top3Lugares() {
 
-        var instrucaoSql = `select l.nome as lugar,
-        count(u.fkLugar) as total
-        from lugar as l join usuario as u
+        var instrucaoSql = `select l.nome as lugar, 
+        count(u.fkLugar) as total,l.caminhoImg as imgL
+        from lugar as l join usuario as u 
             on u.fkLugar = l.idLugar
-        group by l.nome
-        order by total desc
+        group by l.nome, imgL
+order by count(fkLugar) desc        
         limit 3;
         `;
     
@@ -34,7 +34,9 @@ function distGenero() {
     var instrucaoSql = `
     select genero, COUNT(genero) as total
         from usuario
-        group by genero;`;
+        group by genero
+        order by COUNT(genero)desc;
+        `;
     
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
@@ -92,13 +94,13 @@ from compra;`;
         return database.executar(instrucaoSql);
 }
 /*KPIS */
-function kpi_persoNome() {
+function kpi_personagem() {
 
     var instrucaoSql = `
-            select p.nome as nomePersonagem
+            select p.nome as nomePersonagem,p.caminhoKPI as kpiP
         from personagem as p join usuario as u
             on fkPersonagem = idPersonagem
-        group by p.nome
+        group by p.nome, caminhoKPI
         order by count(u.fkPersonagem) desc
         limit 1;`;
     
@@ -109,12 +111,11 @@ function kpi_persoNome() {
 function kpi_lugar() {
 
     var instrucaoSql = `
-                    select l.nome as nomeLugar
+                select l.nome as nomeLugar, l.caminhoImg as imgL
         from lugar as l join usuario as u
             on fkLugar = idLugar
-        group by l.nome
-        order by count(u.fkLugar) desc
-        limit 1;`;
+        group by l.nome, imgL
+order by count(fkLugar) desc    `;
     
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
@@ -144,16 +145,12 @@ function kpi_mediaVendas() {
 
     var instrucaoSql = `
             select ROUND(AVG(totalGasto),2) as media from compra
-order by totalGasto desc;;
+order by totalGasto desc;
 `;
     
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
 }
-
-//Preferencias user
-
-
 
 module.exports = {
     top3Lugares,
@@ -162,7 +159,7 @@ module.exports = {
     faixaEtaria,
     faixaGasto,
     ranking,
-    kpi_persoNome,
+    kpi_personagem,
     kpi_lugar,
     kpi_genero,
     kpi_idadeM,

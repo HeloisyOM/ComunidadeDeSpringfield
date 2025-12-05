@@ -34,8 +34,8 @@ router.get("/ranking", function (req, res) {
 
 //KPIs
 
-router.get("/kpi_persoNome", function (req, res) {
-    dashboardController.kpi_persoNome(req, res);
+router.get("/kpi_personagem", function (req, res) {
+    dashboardController.kpi_personagem(req, res);
 });
 router.get("/kpi_lugar", function (req, res) {
     dashboardController.kpi_lugar(req, res);

@@ -29,7 +29,6 @@ function autenticar(req, res) {
                                         msg: resultadoAutenticar[0].msg,
                                         imgP: resultadoAutenticar[0].imgP,
                                         imgL: resultadoAutenticar[0].imgL,
-                                        kpiP: resultadoAutenticar[0].kpiP,
                                     });
                                 
                     } else if (resultadoAutenticar.length == 0) {

@@ -90,9 +90,9 @@ function ranking(req, res) {
 }
 
 /*KPIS*/
-function kpi_persoNome(req, res) {
+function kpi_personagem(req, res) {
         // Passe os valores como parâmetro e vá para o arquivo dashboardModel.js
-        dashboardModel.kpi_persoNome().then(function (resultado) {
+        dashboardModel.kpi_personagem().then(function (resultado) {
                     if(resultado.length>0){
                         res.status(200).json(resultado);
                 }else{
@@ -170,7 +170,7 @@ module.exports = {
     faixaEtaria,
     faixaGasto,
     ranking,
-    kpi_persoNome,
+    kpi_personagem,
     kpi_lugar,
     kpi_genero,
     kpi_idadeM,

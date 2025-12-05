@@ -34,7 +34,7 @@
 
                         <h3>Seu lugar favorito:</h3>
                         <div id="lugarFav">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -45,18 +45,18 @@
         </aside>
 
         <div id="div_conteudoCentral">
-             <div id="div_navbarTop">
-           <div class="opcao menu">
-               <a href="./dashboard.html">
-                   Dashboard
-                </a>
+            <div id="div_navbarTop">
+                <div class="opcao menu">
+                    <a href="./dashboard.html">
+                        Dashboard
+                    </a>
+                </div>
+                <div class="opcao menu">
+                    <a href="./kwikEmart.html">
+                        Kwik-E-Mart
+                    </a>
+                </div>
             </div>
-            <div class="opcao menu">
-                <a href="./kwikEmart.html">
-                    Kwik-E-Mart
-                </a>
-            </div>
-        </div>
 
 
             <div id="div_conteudo-dash">
@@ -66,38 +66,38 @@
                     <div class="kpi">
                         <div id="kpiP"></div>
                         <div class="texto">
-                        <h3>Personagem favorito</h3>
-                        <h4 id="kpi_perso"></h4>
+                            <h3>Personagem favorito</h3>
+                            <h4 id="kpi_perso"></h4>
                         </div>
                     </div>
 
                     <div class="kpi">
                         <div id="kpiL"></div>
-                        <div class="texto">                        
-                        <h3>Lugar Favorito</h3>
-                        <h4 id="kpi_lugar"></h4>
+                        <div class="texto">
+                            <h3>Lugar Favorito</h3>
+                            <h4 id="kpi_lugar"></h4>
                         </div>
                     </div>
                     <div class="kpi">
                         <img id="img-genero" src="./assets/icon/icon-genero.png" alt="">
-                        <div class="texto">                        
-                        <h3>Gênero Predominante</h3>
-                        <h4 id="kpi_genero"></h4>
+                        <div class="texto">
+                            <h3>Gênero Predominante</h3>
+                            <h4 id="kpi_genero"></h4>
                         </div>
                     </div>
                     <div class="kpi">
                         <img id="img_idade" src="./assets/icon/icon-idade.png" alt="">
-                         <div class="texto">                        
-                        <h3>Idade Média</h3>
-                        <h4 id="kpi_idadeM"></h4>
+                        <div class="texto">
+                            <h3>Idade Média</h3>
+                            <h4 id="kpi_idadeM"></h4>
                         </div>
                     </div>
                     <div class="kpi">
                         <img id="img-vendas" src="./assets/icon/icon_carrinho.png" alt="">
-                      <div class="texto">                        
-                        <h3>Total Vendido</h3>
-                        <h4 id="kpi_mediaVendas"></h4>
-                      </div>
+                        <div class="texto">
+                            <h3>Total Vendido</h3>
+                            <h4 id="kpi_mediaVendas"></h4>
+                        </div>
                     </div>
                     <!-- div class="kpi">
                     <h3>Produto Mais Vendido</h3>
@@ -147,17 +147,15 @@
 </html>
 
 <script>
-    
+
     nomeUser.innerHTML = sessionStorage.NOME_USUARIO;
 
     var idUsuario = Number(sessionStorage.ID_USUARIO);
     var srcPfav = sessionStorage.IMG_PFAV;
     var srcLfav = sessionStorage.IMG_LFAV;
-    var srcKPIp = sessionStorage.IMG_KPIP;
 
     msg.innerHTML = sessionStorage.MSG_USUARIO;
-    kpiP.innerHTML= `<img src=${srcKPIp}>`
-    kpiL.innerHTML= `<img src=${srcLfav}>`    
+
     personagemFav.innerHTML = `<img src=${srcPfav}>`
     lugarFav.innerHTML = `<img src=${srcLfav}>`
 
@@ -169,7 +167,7 @@
         obterDadosFaixaIdade();
         obterDadosGasto();
         mostrarKpis();
-rankingProd();
+        rankingProd();
     }
 
 
@@ -217,33 +215,33 @@ rankingProd();
             ]
         };
 
-           const config = {
+        const config = {
             type: 'bar',
             data: dados,
-            options:{
+            options: {
                 responsive: false,
                 maintainAspectRatio: false,
 
-            scales: {
-                x: {
-                beginAtZero: true,
-                ticks: {
-                    font: {
-                        size: 18 
-                    }
-                }
-            },
-        },
-            plugins: {
-                legend: {
-                labels: {
-                    font: {
-                        size: 20 // legenda
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            font: {
+                                size: 18
+                            }
+                        }
+                    },
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 20 // legenda
+                            }
                         }
                     }
                 }
             }
-           }    
         };
 
         new Chart(
@@ -300,30 +298,30 @@ rankingProd();
         const config = {
             type: 'bar',
             data: dados,
-            options:{
+            options: {
                 responsive: false,
                 maintainAspectRatio: false,
 
-            scales: {
-                x: {
-                beginAtZero: true,
-                ticks: {
-                    font: {
-                        size: 18 
-                    }
-                }
-            },
-        },
-            plugins: {
-                legend: {
-                labels: {
-                    font: {
-                        size: 20 // legenda
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            font: {
+                                size: 18
+                            }
+                        }
+                    },
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 20 // legenda
+                            }
                         }
                     }
                 }
             }
-           }    
         };
 
         new Chart(
@@ -373,36 +371,36 @@ rankingProd();
                 fill: false,
                 tension: 0.1,
                 backgroundColor: ['#7EB3F2', '#F4A6C8', '#57C25B']
-                
+
             },
 
             ]
         };
 
-       const config = {
-        type: 'pie',
-        data: dados,
-        options: {
-            responsive: false,
-            maintainAspectRatio: false,
-            plugins: {
-            legend: {
-                position: 'top',
-                labels: {
-                    font: {
-                    size: 18
+        const config = {
+            type: 'pie',
+            data: dados,
+            options: {
+                responsive: false,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: {
+                                size: 18
+                            },
+                            padding: 20
+                        }
                     },
-                    padding: 20
-                }
-            },
-            datalabels: {
-            font: {
-                size: 18 
+                    datalabels: {
+                        font: {
+                            size: 18
+                        }
+                    }
                 }
             }
-        }
-      }
-    };
+        };
 
 
         new Chart(
@@ -463,24 +461,24 @@ rankingProd();
                 responsive: false,
                 maintainAspectRatio: false,
 
-            scales: {
-                y: {
-                ticks: {
-                    font: {
-                        size: 18 
+                scales: {
+                    y: {
+                        ticks: {
+                            font: {
+                                size: 18
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 20 // legenda
+                            }
+                        }
                     }
                 }
-            }
-        },
-            plugins: {
-                legend: {
-                labels: {
-                    font: {
-                        size: 20 // legenda
-                    }
-                }
-            }
-        }
             }
         };
 
@@ -528,7 +526,7 @@ rankingProd();
                 data: valores,
                 fill: false,
                 tension: 0.1,
-                backgroundColor: ['#27AE60', '#2ECC71','#44ca7c', '#55D988', '#7BECA0', '#A4F8BB']
+                backgroundColor: ['#27AE60', '#2ECC71', '#44ca7c', '#55D988', '#7BECA0', '#A4F8BB']
             },
             ]
         };
@@ -541,33 +539,33 @@ rankingProd();
                 responsive: false,
                 maintainAspectRatio: false,
 
-            scales: {
-                x: {
-                beginAtZero: true,
-                ticks: {
-                    font: {
-                        size: 18 
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            font: {
+                                size: 18
+                            }
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            font: {
+                                size: 18
+                            }
+                        }
                     }
-                }
-            },
-                y: {
-                ticks: {
-                    font: {
-                        size: 18 
-                    }
-                }
-            }
-        },
+                },
 
-            plugins: {
-                legend: {
-                labels: {
-                    font: {
-                        size: 20 // legenda
+                plugins: {
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 20 // legenda
+                            }
+                        }
                     }
                 }
-            }
-        }
             }
         };
 
@@ -577,64 +575,66 @@ rankingProd();
         );
     }
 
-function rankingProd() {
+    function rankingProd() {
 
-    var mensagem=""
-    fetch(`/dashboard/ranking`, { cache: 'no-store' })
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                console.log("Ranking de produtos:", resposta);
+        var mensagem = ""
+        fetch(`/dashboard/ranking`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log("Ranking de produtos:", resposta);
 
-                var listaProduto = [
-                    ['Rosquinha', Number(resposta[0].rosquinha)],
-                    ['Duff', Number(resposta[0].duff)],
-                    ['Panqueca', Number(resposta[0].panqueca)],
-                    ['Pizza', Number(resposta[0].pizza)],
-                    ['Buzz Cola', Number(resposta[0].bzzCola)],
-                    ['Taco', Number(resposta[0].taco)],
-                    ['Hamburguer', Number(resposta[0].burguer)],
-                    ['Hot Dog', Number(resposta[0].hotdog)]
-                ];
-                    console.log(listaProduto);
-                    for(var indiceAtual=0; indiceAtual<listaProduto.length;indiceAtual++){
-                       var indiceMaiorEncontrado = indiceAtual;
+                        var listaProduto = [
+                            ['Rosquinha', Number(resposta[0].rosquinha)],
+                            ['Duff', Number(resposta[0].duff)],
+                            ['Panqueca', Number(resposta[0].panqueca)],
+                            ['Pizza', Number(resposta[0].pizza)],
+                            ['Buzz Cola', Number(resposta[0].bzzCola)],
+                            ['Taco', Number(resposta[0].taco)],
+                            ['Hamburguer', Number(resposta[0].burguer)],
+                            ['Hot Dog', Number(resposta[0].hotdog)]
+                        ];
+                        console.log(listaProduto);
+                        for (var indiceAtual = 0; indiceAtual < listaProduto.length; indiceAtual++) {
+                            var indiceMaiorEncontrado = indiceAtual;
 
-                        for (var indiceDeComparacao = indiceAtual + 1; indiceDeComparacao < listaProduto.length; indiceDeComparacao++) {
-                            if (listaProduto[indiceDeComparacao][1] > listaProduto[indiceMaiorEncontrado][1]) {
-                                indiceMaiorEncontrado = indiceDeComparacao;
+                            for (var indiceDeComparacao = indiceAtual + 1; indiceDeComparacao < listaProduto.length; indiceDeComparacao++) {
+                                if (listaProduto[indiceDeComparacao][1] > listaProduto[indiceMaiorEncontrado][1]) {
+                                    indiceMaiorEncontrado = indiceDeComparacao;
+                                }
                             }
+                            var temporaria = listaProduto[indiceAtual];
+                            listaProduto[indiceAtual] = listaProduto[indiceMaiorEncontrado];
+                            listaProduto[indiceMaiorEncontrado] = temporaria;
                         }
-                        var temporaria = listaProduto[indiceAtual];
-                        listaProduto[indiceAtual] = listaProduto[indiceMaiorEncontrado];
-                        listaProduto[indiceMaiorEncontrado] = temporaria;
-                    } 
-                    
 
-                    for(var i =0; i<listaProduto.length; i++){
-                        mensagem+=`${i+1}° lugar - ${listaProduto[i][0]}: ${listaProduto[i][1]} produtos. <br>`
-                    }
-                    grafico_Produtos.innerHTML=mensagem;
-                });
-            }else {
+
+                        for (var i = 0; i < listaProduto.length; i++) {
+                            mensagem += `${i + 1}° lugar - ${listaProduto[i][0]}: ${listaProduto[i][1]} produtos. <br>`
+                        }
+                        grafico_Produtos.innerHTML = mensagem;
+                    });
+                } else {
                     console.error("Nenhum dado encontrado para o ranking!");
-            }
-        })
-        .catch(function (error) {
-            console.error("Erro no fetch do ranking!", error);
-        });
-}
+                }
+            })
+            .catch(function (error) {
+                console.error("Erro no fetch do ranking!", error);
+            });
+    }
 
- 
+
 
     function mostrarKpis() {
 
-        fetch(`/dashboard/kpi_persoNome`, { cache: 'no-store' }).then(function (response) {
+        fetch(`/dashboard/kpi_personagem`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log("KPI de personagem", resposta);
                     console.log('plotando de kpi de persoangem no gráfico');
                     var personagem = resposta[0].nomePersonagem;
+                    var srcKPIp = resposta[0].kpiP;
+                    kpiP.innerHTML = `<img src=${srcKPIp}>`
                     kpi_perso.innerHTML = personagem;
                 });
             } else {
@@ -652,6 +652,8 @@ function rankingProd() {
                     console.log("KPI de Lugares", resposta);
                     console.log('plotando kpi lugar no gráfico');
                     var lugar = resposta[0].nomeLugar;
+                    var srcKPIl = resposta[0].imgL;
+                    kpiL.innerHTML = `<img src=${srcKPIl}>`
                     kpi_lugar.innerHTML = lugar;
                 });
             } else {
