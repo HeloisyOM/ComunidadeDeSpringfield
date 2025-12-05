@@ -528,7 +528,7 @@ rankingProd();
                 data: valores,
                 fill: false,
                 tension: 0.1,
-                backgroundColor: ['#27AE60', '#2ECC71', '#55D988', '#7BECA0', '#A4F8BB']
+                backgroundColor: ['#27AE60', '#2ECC71','#44ca7c', '#55D988', '#7BECA0', '#A4F8BB']
             },
             ]
         };
@@ -597,17 +597,17 @@ function rankingProd() {
                     ['Hot Dog', Number(resposta[0].hotdog)]
                 ];
                     console.log(listaProduto);
-                    for(var posicao=0; posicao<listaProduto.length;posicao++){
-                       var maiorQuantidade = i;
+                    for(var indiceAtual=0; indiceAtual<listaProduto.length;indiceAtual++){
+                       var indiceMaiorEncontrado = indiceAtual;
 
-                        for (var proximaPosicao = i + 1; proximaPosicao < listaProduto.length; proximaPosicao++) {
-                            if (listaProduto[j][1] > listaProduto[maiorQuantidade][1]) {
-                                maiorQuantidade = j;
+                        for (var indiceDeComparacao = indiceAtual + 1; indiceDeComparacao < listaProduto.length; indiceDeComparacao++) {
+                            if (listaProduto[indiceDeComparacao][1] > listaProduto[indiceMaiorEncontrado][1]) {
+                                indiceMaiorEncontrado = indiceDeComparacao;
                             }
                         }
-                        var temp = listaProduto[i];
-                        listaProduto[i] = listaProduto[maiorQuantidade];
-                        listaProduto[maiorQuantidade] = temp;
+                        var temporaria = listaProduto[indiceAtual];
+                        listaProduto[indiceAtual] = listaProduto[indiceMaiorEncontrado];
+                        listaProduto[indiceMaiorEncontrado] = temporaria;
                     } 
                     
 

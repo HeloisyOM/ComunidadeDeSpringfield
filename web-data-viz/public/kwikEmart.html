@@ -33,84 +33,92 @@
         <div id="img_kwik">
         </div>
         <div id="conteudoCentral">
-        
-        <div id="vendinha">
-        <div class="produtos">
 
-            <div class="produto">
-                
-                <img src="../assets/produtos/rosquinha.png" alt="Rosquinha" class="img-prod">
-                <label for="input_qntRosq">Quantidade:</label>
-                <input type="number" id="input_qntRosq">
-                <img src="./assets/produtos/5.png" alt="promo Rosq">
+            <div id="vendinha">
+                <div class="produtos">
 
+                    <div class="produto">
+
+                        <img src="../assets/produtos/rosquinha.png" alt="Rosquinha" class="img-prod">
+                        <label for="input_qntRosq">Quantidade:</label>
+                        <input type="number" id="input_qntRosq" class="inputs_qtd">
+                        <img src="./assets/produtos/5.png" alt="promo Rosq" class="imgsPromo">
+
+                    </div>
+
+                    <div class="produto">
+
+                        <img src="../assets/produtos/duff.png" alt="Cerveja Duff" class="img-prod">
+                        <label for="input_qntDuff">Quantidade:</label>
+                        <input type="number" id="input_qntDuff" class="inputs_qtd">
+                        <img src="./assets/produtos/6.png" alt="promo Duff" class="imgsPromo">
+
+                    </div>
+                    <div class="produto">
+
+                        <img src="./assets/produtos/panqueca.png" alt="Panqueca" class="img-prod">
+                        <label for="input_qntPanq">Quantidade:</label>
+                        <input type="number" id="input_qntPanq" class="inputs_qtd">
+                        <img src="./assets/produtos/7.png" alt="promo Panq" class="imgsPromo">
+
+                    </div>
+                    <div class="produto">
+
+                        <img src="./assets/produtos/pizza.png" alt="Pizza do Luigi" class="img-prod">
+                        <label for="input_qntPizz">Quantidade:</label>
+                        <input type="number" id="input_qntPizz" class="inputs_qtd">
+                        <img src="./assets/produtos/8.png" alt="promo Pizz" class="imgsPromo">
+
+                    </div>
+                </div>
+                <div class="produtos">
+                    <div class="produto">
+
+                        <img src="./assets/produtos/buzzCOla.png" alt="Buzz Cola" class="img-prod">
+                        <label for="input_qntBuzz">Quantidade:</label>
+                        <input type="number" id="input_qntBuzz" class="inputs_qtd">
+                        <img src="./assets/produtos/9.png" alt="promo Buzz" class="imgsPromo">
+
+                    </div>
+                    <div class="produto">
+
+                        <img src="./assets/produtos/taco.png" alt="Taco" class="img-prod">
+                        <label for="input_qntTaco">Quantidade:</label>
+                        <input type="number" id="input_qntTaco" class="inputs_qtd">
+                        <img src="./assets/produtos/10.png" alt="promo taco" class="imgsPromo">
+
+                    </div>
+                    <div class="produto">
+                        <img src="./assets/produtos/hamburger.png" alt="Hamburguer" class="img-prod">
+                        <label for="input_qntBurg">Quantidade:</label>
+                        <input type="number" id="input_qntBurg" class="inputs_qtd">
+                        <img src="./assets/produtos/11.png" alt="promo Hamburguer" class="imgsPromo">
+
+                    </div>
+                    <div class="produto">
+                        <img src="./assets/produtos/hotDog.png" alt="Hot Dog do Homer" class="img-prod">
+                        <label for="input_qntHot">Quantidade:</label>
+                        <input type="number" id="input_qntHot" class="inputs_qtd">
+                        <img src="./assets/produtos/12.png" alt="promo Hot dog" class="imgsPromo">
+
+                    </div>
+                </div>
             </div>
+            <div id="div_mensagem">
+                <div id="div_carrinho" style="display: none;">
 
-            <div class="produto">
-           
-                <img src="../assets/produtos/duff.png" alt="Cerveja Duff" class="img-prod">
-                <label for="input_qntDuff">Quantidade:</label>
-                <input type="number" id="input_qntDuff">
-                <img src="./assets/produtos/6.png" alt="promo Duff">
+                </div>
+                <div id="div_btnCarinho">
+                    <button id="btnCarinho" onclick="abrirExtrato()"><img src="./assets/icon/icon-carrinho_kwik.png"
+                            alt="Icon de carrinho"></button>
+                </div>
+                <div id="apu">
+                    <img src="./assets/imgs/apu_kwik.png" alt="">
+                    <div id="div_resultado"></div>
 
-            </div>
-            <div class="produto">
-
-                <img src="./assets/produtos/panqueca.png" alt="Panqueca" class="img-prod">
-                <label for="input_qntPanq">Quantidade:</label>
-                <input type="number" id="input_qntPanq">
-                <img src="./assets/produtos/7.png" alt="promo Panq">
-
-            </div>
-            <div class="produto">
-
-                <img src="./assets/produtos/pizza.png" alt="Pizza do Luigi" class="img-prod">
-                <label for="input_qntPizz">Quantidade:</label>
-                <input type="number" id="input_qntPizz">
-                <img src="./assets/produtos/8.png" alt="promo Pizz">
-
+                </div>
             </div>
         </div>
-        <div class="produtos">
-            <div class="produto">
-
-                <img src="./assets/produtos/buzzCOla.png" alt="Buzz Cola" class="img-prod">
-                <label for="input_qntBuzz">Quantidade:</label>
-                <input type="number" id="input_qntBuzz">
-                <img src="./assets/produtos/9.png" alt="promo Buzz">
-
-            </div>
-            <div class="produto">
-
-                <img src="./assets/produtos/taco.png" alt="Taco" class="img-prod">
-                <label for="input_qntTaco">Quantidade:</label>
-                <input type="number" id="input_qntTaco">
-                <img src="./assets/produtos/10.png" alt="promo taco">
-
-            </div>
-            <div class="produto">
-                <img src="./assets/produtos/hamburger.png" alt="Hamburguer" class="img-prod">
-                <label for="input_qntBurg">Quantidade:</label>
-                <input type="number" id="input_qntBurg">
-                <img src="./assets/produtos/11.png" alt="promo Hamburguer">
-
-            </div>
-            <div class="produto">
-                <img src="./assets/produtos/hotDog.png" alt="Hot Dog do Homer" class="img-prod">
-                <label for="input_qntHot">Quantidade:</label>
-                <input type="number" id="input_qntHot">
-                <img src="./assets/produtos/12.png" alt="promo Hot dog">
-
-            </div>
-        </div>
-        </div>
-        <div id="img_apu">
-                    <button onclick="comprar()">Comprar</button>
-
-            <!-- style="display: none;" -->
-            <div id="alerta"  ></div>
-            <img src="./assets/imgs/apu_kwik.png" alt=""></div>
-        </div> 
     </main>
 </body>
 
@@ -140,8 +148,6 @@
         var qntBurg = input_qntBurg.value;
         var qntHot = input_qntHot.value;
 
-        var total = (qntRosq * 6) + (qntDuff * 12) + (qntPanq * 15) + (qntPizz * 45) + (qntBuzz * 8) + (qntTaco * 10) + (qntBurg * 18) + (qntHot * 14);
-
         if (!qntRosq) qntRosq = 0;
         if (!qntDuff) qntDuff = 0;
         if (!qntPanq) qntPanq = 0;
@@ -150,6 +156,12 @@
         if (!qntTaco) qntTaco = 0;
         if (!qntBurg) qntBurg = 0;
         if (!qntHot) qntHot = 0;
+
+        var total = (qntRosq * 6) + (qntDuff * 12) + (qntPanq * 15) + (qntPizz * 45) + (qntBuzz * 8) + (qntTaco * 10) + (qntBurg * 18) + (qntHot * 14);
+
+        div_carrinho.style.display = 'none';
+        apu.style.display = 'flex';
+        btnCarinho.style.display = 'flex';
 
 
         fetch("/mercado/cadastrar", {
@@ -175,27 +187,36 @@
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                alerta.style.display='block';
 
                 if (total <= 20) {
-                    alerta.innerHTML = `Gastou pouco, hein? O Homer tá orgulhoso… menos uma dívida pra família Simpson!`;
+                    div_resultado.innerHTML = `Gastou pouco, hein? O Homer tá orgulhoso… menos uma dívida pra família Simpson!`;
                 } else if (total > 20 && total <= 40) {
-                    alerta.innerHTML = `Compra modesta! A Marge agradece por você não destruir o orçamento familiar.`;
+                    div_resultado.innerHTML = `Compra modesta! A Marge agradece por você não destruir o orçamento familiar.`;
                 } else if (total > 40 && total <= 70) {
-                    alerta.innerHTML = `Hmm… tá começando a gastar como alguém que foi seduzido por rosquinhas. O Homer aprova!`;
+                    div_resultado.innerHTML = `Hmm… tá começando a gastar como alguém que foi seduzido por rosquinhas. O Homer aprova!`;
                 } else if (total > 70 && total <= 100) {
-                    alerta.innerHTML = `Isso aí já parece um jantar completo no Kwik-E-Mart. O Apu agradece a preferência!`;
+                    div_resultado.innerHTML = `Isso aí já parece um jantar completo no Kwik-E-Mart. O Apu agradece a preferência!`;
                 } else if (total > 100 && total <= 150) {
-                    alerta.innerHTML = `Você gastou o suficiente pra financiar metade do bar do Moe por um dia inteiro.Certeza que tem Duff envolvida!`;
+                    div_resultado.innerHTML = `Você gastou o suficiente pra financiar metade do bar do Moe por um dia inteiro.Certeza que tem Duff envolvida!`;
                 } else if (total > 150 && total <= 200) {
-                    alerta.innerHTML = `Acho que você acabou de virar cliente VIP do Apu. Ele provavelmente já sabe seu nome e onde você mora.`;
+                    div_resultado.innerHTML = `Acho que você acabou de virar cliente VIP do Apu. Ele provavelmente já sabe seu nome e onde você mora.`;
                 } else {
-                    alerta.innerHTML = `Meu deus até o Sr. Burns olharia pra você e diria: ‘Excelente…`;
+                    div_resultado.innerHTML = `Meu deus até o Sr. Burns olharia pra você e diria: ‘Excelente…`;
                 }
 
             } else {
-                throw "Houve um erro ao tentar realizara compra";
+                throw "Houve um erro ao tentar realizar a compra";
             }
+
+                input_qntRosq.value="";
+        input_qntDuff.value="";
+        input_qntPanq.value="";
+        input_qntPizz.value="";
+        input_qntBuzz.value="";
+        input_qntTaco.value="";
+        input_qntBurg.value="";
+        input_qntHot.value="";
+
         })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
@@ -203,6 +224,87 @@
         return false;
     }
 
+    function fecharExtrato() {
+        btnCarinho.style.display = 'flex';
+        div_carrinho.style.display = 'none';
+        apu.style.display = 'flex';
+    }
+    function abrirExtrato() {
+        var mensagem = '';
+        var qntRosq = input_qntRosq.value;
+        var qntDuff = input_qntDuff.value;
+        var qntPanq = input_qntPanq.value;
+        var qntPizz = input_qntPizz.value;
+        var qntBuzz = input_qntBuzz.value;
+        var qntTaco = input_qntTaco.value;
+        var qntBurg = input_qntBurg.value;
+        var qntHot = input_qntHot.value;
 
+
+        if (!qntRosq) qntRosq = 0;
+        if (!qntDuff) qntDuff = 0;
+        if (!qntPanq) qntPanq = 0;
+        if (!qntPizz) qntPizz = 0;
+        if (!qntBuzz) qntBuzz = 0;
+        if (!qntTaco) qntTaco = 0;
+        if (!qntBurg) qntBurg = 0;
+        if (!qntHot) qntHot = 0;
+
+        var total = (qntRosq * 6) + (qntDuff * 12) + (qntPanq * 15) + (qntPizz * 45) + (qntBuzz * 8) + (qntTaco * 10) + (qntBurg * 18) + (qntHot * 14);
+        btnCarinho.style.display = 'none'
+        div_carrinho.style.display = 'block';
+        apu.style.display = 'none';
+
+        mensagem = `
+        <div id='div_btnFechar'>
+        <button id='btn_fechar' onclick='fecharExtrato()'>X</button><br>
+        </div>
+        <div id='div_conteudo_extrato'>
+        <h3>Bem-vindo ao Kwik-E-Mart!</h3>
+        <br>
+        <h4>Extrato:</h4><br>
+        - Rosquinhas: ${qntRosq}<br>
+        - Cerveja DUff: ${qntDuff}<br>
+        - Panqueca: ${qntPanq}<br>
+        - Buzz Cola: ${qntBuzz}<br>
+        - Pizza do Luigi: ${qntPizz}<br>
+        - Taco: ${qntTaco}<br>
+        - Hambúrguer: ${qntBurg}<br>
+        - Hot-Dog do Homer: ${qntHot}<br>
+        <br>
+        <h4>Total:${total}</h4>
+        <br>
+        <h3>Agradecemos a Preferência! <br>Volte Sempre!</h3>
+        <br><br>
+        <div id='div_outrosBtns'>
+        <button  id='btn_comprar' onclick="comprar()">Comprar</button>
+        <button  id='btn_cancelar' onclick="cancelar()">Cancelar</button>
+        </div>
+        </div>
+        
+        `
+
+        div_carrinho.innerHTML = mensagem;
+    }
+
+
+    function cancelar() {
+
+        input_qntRosq.value = "";
+        input_qntDuff.value = "";
+        input_qntPanq.value = "";
+        input_qntPizz.value = "";
+        input_qntBuzz.value = "";
+        input_qntTaco.value = "";
+        input_qntBurg.value = "";
+        input_qntHot.value = "";
+
+
+        btnCarinho.style.display = 'flex';
+        apu.style.display = 'flex'
+
+        div_carrinho.style.display = 'none';
+
+    }
 
 </script>
