@@ -111,118 +111,90 @@ select * from compra;
 show tables;
 
 /*Gráfico do top 3 personagens favoritos*/
-select p.nome as personagem,
-count(u.fkPersonagem) as total
-from personagem as p join usuario as u
-	on u.fkPersonagem = p.idPersonagem
-group by p.nome
-order by total desc
-limit 3;
+select l.nome as lugar, 
+    count(u.fkLugar) as total,l.caminhoImg as imgL
+    from lugar as l join usuario as u 
+    on u.fkLugar = l.idLugar
+    group by l.nome, imgL
+	order by count(fkLugar) desc        
+    limit 3;
 
 /*Gráfico top 3 lugares que as pessoas mais gosariam de visitar ou apenas gosam basante*/
-select l.nome as lugar,
-count(u.fkLugar) as total
-from lugar as l join usuario as u
-	on u.fkLugar = l.idLugar
-group by l.nome
-order by total desc
-limit 3;
+select p.nome as personagem,
+	count(u.fkPersonagem) as total
+	from personagem as p join usuario as u
+		on u.fkPersonagem = p.idPersonagem
+	group by p.nome
+	order by total desc
+	limit 3;;
 
-/*Gráfico de disribuição de gênero*/
+
+/*Gráfico de Gênero*/
 
 select genero, COUNT(genero) as total
-from usuario
-group by genero;
+	from usuario
+	group by genero
+	order by COUNT(genero)desc;
 
-/*KPI personagem e foto do fav*/
-
-select p.nome,p.imagem
-from personagem as p join usuario as u
-	on fkPersonagem = idPersonagem
-group by p.nome
-order by count(u.fkPersonagem) desc
-limit 1;
-
-
-/*KPI lugar e foto do fav*/
-
-select l.nome
-from lugar as l join usuario as u
-	on fkLugar = idLugar
-group by l.nome
-order by count(u.fkLugar) desc
-limit 1;
-
-/*KPI genero*/
-select genero
-from usuario
-group by genero
-order by count(genero) desc
-limit 1;
-
-/*KPI média de compra da Comunidade*/
-
-select ROUND(avg(totalGasto),2) as MediaGeral from compra;
-
-/*Idade*/
-	select ROUND(AVG(timestampdiff(year,dataNasc, curdate()))) as idade from usuario;
-
-/*grafico de distribuicao de faixa etária */
+/*Gráfico de faixa etária */
 select
-case 
-when timestampdiff(year,dataNasc, curdate()) between 12 and 17 then '12-17'
-when timestampdiff(year,dataNasc, curdate()) between 18 and 25 then '18-25'
-when timestampdiff(year,dataNasc, curdate()) between 26 and 40 then '26-40'
-else '+41'
-end as faixa,
-	count(*) as valores
-    from usuario
-    group by faixa
-		order by valores desc;
+	case 
+	when timestampdiff(year,dataNasc, now()) between 12 and 17 then '12-17'
+	when timestampdiff(year,dataNasc, now()) between 18 and 25 then '18-25'
+	when timestampdiff(year,dataNasc, now()) between 26 and 40 then '26-40'
+	else '41+'
+	end as faixa,
+	count(*) as quantidade
+	from usuario
+	group by faixa
+		order by quantidade desc;
 
-select DISTINCT(totalGasto) from compra
-order by totalGasto desc
-limit 1;
-
-select ROUND(AVG(totalGasto),2) from compra
-order by totalGasto desc;
-
-           select SUM(totalGasto) as totalGeral from compra order by totalGasto desc;
-
-/*Gŕafico de faixa de total gasto no mercadinh*/
+/*Gráfico de Faixa de gasto no kwik-e-mart*/
 select 
-case
-when totalGasto<=20 then 'Até 20 reais'
-when totalGasto>20 and totalGasto<=40 then 'Até R$40,00 reais'
-when totalGasto>40 and totalGasto<=70 then 'Até R$70,00 reais'
-when totalGasto>70 and totalGasto<=100 then 'Até R$100,00 reais'
-when totalGasto>100 and totalGasto<=150 then 'Até R$150,00 reais'
-when totalGasto>150 and totalGasto<=200 then 'Até R$200,00'
-else 'Maior que R$200,00'
-end as faixaGasto,
-count(*) as valores
-    from compra
-    group by faixaGasto
-		order by valores desc;
+	case
+	when totalGasto<=20 then 'Até 20 reais'
+	when totalGasto>20 and totalGasto<=40 then 'Até R$40,00 reais'
+	when totalGasto>40 and totalGasto<=70 then 'Até R$70,00 reais'
+	when totalGasto>70 and totalGasto<=100 then 'Até R$100,00 reais'
+	when totalGasto>100 and totalGasto<=150 then 'Até R$150,00 reais'
+	when totalGasto>150 and totalGasto<=200 then 'Até R$200,00'
+	else '+R$200,00'
+	end as faixaGasto,
+	count(*) as valores
+		from compra
+		group by faixaGasto
+			order by valores desc;
 
-
- select (select SUM(rosquinha) as rosquinha, SUM(duff) as duff , SUM(panqueca) as panqueca , SUM(pizzaLuigi) as pizza  , 
-SUM(BuzzCola) as bzzCola, SUM(taco) as taco , SUM(hamburguer) as burguer  , SUM(hotdog) as hotdog ) as venda
-from compra
-order by venda desc;
-
-
-
-select SUM(rosquinha) as rosquinha, SUM(duff) as duff , SUM(panqueca) as panqueca , SUM(pizzaLuigi) as pizza  , 
+/*Ranking de produtos*/
+select SUM(rosquinha) as rosquinha, SUM(duff) as duff , SUM(panqueca) as panqueca , SUM(pizzaLuigi) as pizza, 
 SUM(BuzzCola) as bzzCola, SUM(taco) as taco , SUM(hamburguer) as burguer  , SUM(hotdog) as hotdog 
 from compra;
 
-select idUsuario,fkPersonagem,fkLugar, u.nome, email,p.nome as personagem, p.caminhoImg as imgP,p.caminhoKPI as kpiP, l.nome as lugar, l.caminhoImg as imgL,conteudo
-from usuario as u join personagem as p
-	on u.fkPersonagem = p.idPersonagem
-		join mensagem
-        on idUsuario = fkUsuario
-		join lugar as l
-			on u.fkLugar = l.idLugar;
-            
-select rosqui
+/*KPI personagem favorito da comunidade*/
+ select p.nome as nomePersonagem,p.caminhoKPI as kpiP
+	from personagem as p join usuario as u
+		on fkPersonagem = idPersonagem
+	group by p.nome, caminhoKPI
+	order by count(u.fkPersonagem) desc
+	limit 1;
+
+/*KPI lugar favorito da comunidade*/
+ select l.nome as nomeLugar, l.caminhoImg as imgL
+	from lugar as l join usuario as u
+	on fkLugar = idLugar
+	group by l.nome, imgL
+	order by count(fkLugar) desc; 
+
+/*KPI lugar genêro predominante da comunidade*/
+select genero
+	from usuario
+	group by genero
+	order by count(genero) desc
+	limit 1;
+
+/*KPI lugar idade média da comunidade*/
+select ROUND(AVG(timestampdiff(year,dataNasc, curdate()))) as idade from usuario;
+
+/*KPI lugar média de compra no mercadinho*/
+select ROUND(AVG(totalGasto),2) as media from compra
+	order by totalGasto desc;

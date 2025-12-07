@@ -115,7 +115,7 @@ function kpi_lugar() {
         from lugar as l join usuario as u
             on fkLugar = idLugar
         group by l.nome, imgL
-order by count(fkLugar) desc    `;
+order by count(fkLugar) desc;    `;
     
         console.log("Executando a instrução SQL: \n" + instrucaoSql);
         return database.executar(instrucaoSql);
